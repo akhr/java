@@ -1,0 +1,5 @@
+To get TopCoder Question for the SRM match follow the steps
+
+1. Goto to TopCoder "Problem Archive" - https://www.topcoder.com/tc?module=ProblemArchive 
+2. Lookup by problem name
+3. Also you can lookup by Categories like "String Manipulation", "Brute Force", "Math", "Sorting" etc.
