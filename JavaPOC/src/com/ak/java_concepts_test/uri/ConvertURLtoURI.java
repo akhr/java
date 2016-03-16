@@ -11,7 +11,7 @@ public class ConvertURLtoURI {
 
         URL url = null;
         URI uri = null;
-        String urlString = "http://www.idevelopment.info/data/Oracle/DBA_tips/Linux/LINUX_5.shtml";
+        String urlString = "http://www.idevelopment.info/data/Oracle/DBA_tips/Linux/LINUX_5.shtml?abiuyenc=23";
         
         // Create a URL object
         try {
@@ -29,6 +29,11 @@ public class ConvertURLtoURI {
         
         // Print the original URL object and the newly converted URI object
         System.out.println("Original URL  : " + url);
+        System.out.println("Original URL.getProtocol()  : " + url.getProtocol());
+        System.out.println("Original URL.getHost()  : " + url.getHost());
+        System.out.println("Original URL.getPort()  : " + url.getPort());
+        System.out.println("Original URL.getPath()  : " + url.getPath());
+        System.out.println("Original URL.getQuery()  : " + url.getQuery());
         System.out.println("Converted URI : " + uri);
 
     }
