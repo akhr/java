@@ -11,6 +11,7 @@ This project contains several sub modules including
         3. Selection Sort
         4. Merge Sort
         5. Heap Sort
+        6. Quick Sort
       2. Math
       3. String Algorithms
       4. Maze Problem
