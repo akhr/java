@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.thesaka.algorithms.sorting;
+package com.ak.algorithms.sorting;
 
 /**
  * @author Akhash

@@ -16,6 +16,5 @@ public interface Sorter {
 	int[] sortArray(int[] array);
 	List<Integer> sortList(List<Integer> list);
 	List<Comparable> sortComparableList(List<Comparable> comparableList);
-	void printArray(String message, int[] array);
 }
 

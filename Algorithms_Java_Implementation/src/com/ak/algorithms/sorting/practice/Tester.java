@@ -3,7 +3,7 @@
  */
 package com.ak.algorithms.sorting.practice;
 
-import java.util.Random;
+import com.ak.utils.Utils;
 
 /**
  * @author Akhash Ramamurthy
@@ -41,7 +41,7 @@ public class Tester {
 			System.out.println(" ** "+className+" ** ");
 			
 			for(int j=0; j<randArrayInfo.length; j++){
-				int[] input = intGenerator(randArrayInfo[j][0], randArrayInfo[j][1], randArrayInfo[j][2]);
+				int[] input = Utils.intGenerator(randArrayInfo[j][0], randArrayInfo[j][1], randArrayInfo[j][2]);
 				sorterArr[type].sortArray(input);
 			}
 			
@@ -50,13 +50,6 @@ public class Tester {
 
 	}
 	
-	public static int[] intGenerator(int size, int min, int max){
-		int[] array = new int[size];
-		Random random = new Random();
-		for(int i=0; i<size-1; i++){
-			array[i] = random.nextInt((max - min) + 1) + min;
-		}
-		return array;
-	}
+	
 
 }

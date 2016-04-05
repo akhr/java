@@ -5,6 +5,8 @@ package com.ak.algorithms.sorting.practice;
 
 import java.util.List;
 
+import com.ak.utils.Utils;
+
 /**
  * @author Akhash Ramamurthy
  *
@@ -26,17 +28,9 @@ public abstract class AbstractSorter implements Sorter {
 		return null;
 	}
 	
-	@Override
-	public void printArray(String message, int[] array) {
-		System.out.println("Printing "+message);
-		for(int i=0; i<array.length; i++){
-			if(i==0)
-				System.out.print("[ "+array[i]);
-			else if(i==array.length-1)
-				System.out.println(" "+array[i]+" ]");
-			else
-				System.out.print(" "+array[i]);
-		}
+	
+	void printArray(String message, int[] array){
+		Utils.printArray(message, array);
 	}
 	
 }

@@ -1,4 +1,4 @@
-package com.thesaka.algorithms.sorting;
+package com.ak.algorithms.sorting;
 
 import java.util.ArrayList;
 import java.util.List;

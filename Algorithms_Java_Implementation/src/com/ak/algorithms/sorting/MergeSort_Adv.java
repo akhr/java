@@ -1,4 +1,4 @@
-package com.thesaka.algorithms.sorting;
+package com.ak.algorithms.sorting;
 
 public class MergeSort_Adv {
 	
