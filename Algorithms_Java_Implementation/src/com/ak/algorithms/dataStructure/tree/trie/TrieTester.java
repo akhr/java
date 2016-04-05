@@ -1,4 +1,4 @@
-package com.thesaka.algorithms.dataStructure.tree.trie;
+package com.ak.algorithms.dataStructure.tree.trie;
 
 public class TrieTester {
 

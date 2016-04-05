@@ -1,4 +1,4 @@
-package com.thesaka.algorithms.dataStructure.tree.trie;
+package com.ak.algorithms.dataStructure.tree.trie;
 
 public class Trie {
 
@@ -12,18 +12,18 @@ public class Trie {
 		insert(word.toLowerCase(), root);
 	}
 
-	private void insert(String word, TrieNode root){
+	private void insert(String word, TrieNode node){
 		char ch = word.charAt(0);
-		if(root.links[ch-97] ==  null){
-			TrieNode node = new TrieNode();
-			node.charac = ch;
-			root.links[ch-97] = node;
+		if(node.links[ch-97] ==  null){
+			TrieNode linkNode = new TrieNode();
+			linkNode.charac = ch;
+			node.links[ch-97] = linkNode;
 		}
 
 		if(word.length()>1){
-			insert(word.substring(1), root.links[ch-97]);
+			insert(word.substring(1), node.links[ch-97]);
 		}else{
-			root.links[ch-97].fullWord = true;
+			node.links[ch-97].fullWord = true;
 		}
 	}
 
