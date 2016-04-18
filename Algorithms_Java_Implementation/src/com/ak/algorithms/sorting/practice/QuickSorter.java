@@ -19,6 +19,7 @@ public class QuickSorter extends AbstractSorter implements Sorter {
 	
 	@Override
 	public int[] sortArray(int[] array) {
+		array = new int[]{12, 14, 32, 4, 57, 2};
 		printArray("UN-sorted QuickSort Array: ", array);
 		quickSort(array, 0, array.length-1);
 		printArray("Sorted QuickSort Array: ", array);
