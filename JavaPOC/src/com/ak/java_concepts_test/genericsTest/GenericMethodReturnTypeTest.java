@@ -1,4 +1,4 @@
-package com.thesaka.eg.genericsTest;
+package com.ak.java_concepts_test.genericsTest;
 
 public class GenericMethodReturnTypeTest {
 	 // determines the largest of three Comparable objects
