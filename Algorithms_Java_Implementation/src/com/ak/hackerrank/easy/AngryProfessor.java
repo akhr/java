@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.thesaka.hackerrank.easy;
+package com.ak.hackerrank.easy;
 
 import java.util.Scanner;
 
