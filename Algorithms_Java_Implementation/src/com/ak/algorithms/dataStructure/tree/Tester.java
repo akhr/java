@@ -1,6 +1,6 @@
-package com.thesaka.algorithms.dataStructure.tree;
+package com.ak.algorithms.dataStructure.tree;
 
-import com.thesaka.algorithms.dataStructure.tree.BinaryTree.Node;
+import com.ak.algorithms.dataStructure.tree.BinaryTree.Node;
 
 
 public class Tester {

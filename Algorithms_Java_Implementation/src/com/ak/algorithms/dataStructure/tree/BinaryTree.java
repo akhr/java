@@ -1,4 +1,4 @@
-package com.thesaka.algorithms.dataStructure.tree;
+package com.ak.algorithms.dataStructure.tree;
 
 import java.sql.PreparedStatement;
 import java.util.LinkedList;
