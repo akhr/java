@@ -33,6 +33,9 @@ public class MergeSorter extends AbstractSorter implements Sorter {
 				mHelperArray[helperIndex++] = array[leftIndex++];
 			}else if(array[rightIndex] < array[leftIndex]){
 				mHelperArray[helperIndex++] = array[rightIndex++];
+			}else if(array[leftIndex] == array[rightIndex]){
+				mHelperArray[helperIndex++] = array[leftIndex++];
+				mHelperArray[helperIndex++] = array[rightIndex++];
 			}
 		}
 		

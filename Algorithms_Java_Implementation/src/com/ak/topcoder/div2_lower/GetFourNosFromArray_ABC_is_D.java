@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.thesaka.topcoder.div2_lower;
+package com.ak.topcoder.div2_lower;
 
 import java.util.HashMap;
 import java.util.Map;
