@@ -1,4 +1,4 @@
-package com.thesaka.algorithms.dataStructure.linkedList;
+package com.ak.algorithms.dataStructure.linkedList;
 
 import java.util.HashMap;
 import java.util.Map;

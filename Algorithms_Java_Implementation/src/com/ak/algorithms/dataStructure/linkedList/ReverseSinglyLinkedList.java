@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.thesaka.algorithms;
+package com.ak.algorithms.dataStructure.linkedList;
 
 /**
  * @author Akhash Ramamurthy

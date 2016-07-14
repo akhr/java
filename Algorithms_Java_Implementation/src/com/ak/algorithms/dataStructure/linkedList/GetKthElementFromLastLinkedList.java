@@ -1,10 +1,10 @@
-package com.thesaka.algorithms.dataStructure.linkedList;
+package com.ak.algorithms.dataStructure.linkedList;
 
 import java.util.Stack;
 
-import com.thesaka.algorithms.dataStructure.linkedList.Node;
+import com.ak.algorithms.dataStructure.linkedList.Node;
 
-public class GetKthElementLinkedList {
+public class GetKthElementFromLastLinkedList {
 	
 	public static Node getKthElement(Node head, int k){
 		Node n = head;

@@ -1,6 +1,6 @@
-package com.thesaka.algorithms.dataStructure.linkedList;
+package com.ak.algorithms.dataStructure.linkedList;
 
-import com.thesaka.algorithms.dataStructure.linkedList.Node;
+import com.ak.algorithms.dataStructure.linkedList.Node;
 
 public class LinkedListRemoveDuplicates {
 
