@@ -1,0 +1,91 @@
+https://gist.github.com/danyim/53caf1dab415b15fb2850c1396b0d1dc
+
+
+Ordered Statistic Trees
+
+Problem: Given a stream of integers, you should be able to provide the median at any given time..
+Ex. input: [2, 8, 5, 3, 4, 2, .. ]
+Output (medians at i): [2, 2, 5, 3, 4, 3, 3]
+Assumption: if you have an even number of values, the lower value is the median
+Naive solution: use insertion sort @ complexity cost O(N^2). As every value that comes in, access input[input.length / 2]
+Heap solution (Cracking the Coding Interview):
+Create two heaps, min and max, of the same size
+Heaps
+Insertion: 2O(logn) + (change for rebalancing) + C = O(logn)
+Deletion: O(logn)
+For this problem:
+O(logn) +[O(logn) + O(logn) (chance for rebalancing)] + C (constant time lookups)=> O(logn)
+When the heaps are differing in size by 1, take the top value of the larger heap add add it to the smaller heap
+Ordered Statistic Tree solution:
+
+"Find the kth largest element in a streaming collection"
+Using a BST requires traversing the entire tree to find the kth element, there not suited to solve this problem
+Create a BST with node "weights" (size of the subtree with that root) with the same structure as the value BST.
+Finding the kth largest value
+
+Start at the root, check k
+Runtime is proportional to the height of the tree, in a balanced tree: log(n)
+
+func findkth(k, root) {
+    if(root.left == null) {
+      leftCount = 0;
+    }
+    else {
+      leftCount = root.left.count;
+    }
+
+    if(leftCount == k) {
+      return root.value;
+    }
+    else if(leftCount < k) {
+      return findkth((k - leftCount - 1), root.right);
+    }
+    else {
+      return findkth(k, root.left);
+    }
+}
+Can be converted into a while loop
+Works for both balanced (preferred for optimal time complexity) and unbalanced
+A ranking function is the inverse of the above procedure; e.g., given a value of v, tell me the rank of that number in the set
+Weights derived through tree balancing algorithms
+Look into deletions for trees
+Solving Problems with Ordered Statistic Trees
+
+Class of problems involving contiguous subarrays
+
+Given A = [5, 3, 8, -8, 2, -4] count how many subarrays that sum to a target range T = [7, 9]
+Possible to solve this in O(n^3) or O(n^2)
+How can we do better?
+When asked to deal with contiguous subarrays, think about pairs of arrays
+Create a cumulative array, C, wrt A:
+
+A = [   5, 3, 8, -8, 2, -4]
+        |  |  |   |  |   |
+C = [0, 5, 8, 16, 8, 10, 6]
+When T is a single number, not a range...
+Go right-to-left on C and insert (i + T, 1) into a hash table if key i + T doesn't exist. If it does, increment the value, such as (i + T, x + 1), AND increment the global matching subarray counter
+To use an OST...
+Think in sets... # elements >= a and < b == (# of elements < b) - (# of elements < a)
+Like in the single number case, instead of keeping track of subarrays in a hash table, you are using an ordered statistic tree
+Complexity is O(nlogn)
+Handling duplicates
+Add a weight to the node, so that it will be (value, duplicate count, cumulative weight [sum |children|, |root|])
+How to practice?
+Start with BST, then handle duplicates, then OST
+Another class of problem to solve with OST: subsequences
+
+Find the total number of increasing subsequences in A = [8, 4, 7, 3, 2, 8, 5]
+Naive O(n^2) solution: Go left to right, create a C that memos the sum of all sequences less than the value of the current index and also to the left of the current index, thus...
+
+A = [8, 4, 7, 3, 2, 8, 5]
+     |  |  |  |  |  |  |
+C = [1, 1, 2, 1, 1, 6, 4]
+How to optimize using an OST?
+
+Create an OST that's (value, C[i], total weight)
+FYI: Know how to write the code to print out all subsequences of an array. And know its complexity
+
+Resources
+
+geeksforgeeks
+careercup.com
