@@ -16,6 +16,7 @@ This project contains several sub modules including
       3. String Algorithms
       4. Maze Problem
       5. Data Structures - Java implementation of different data structures
+      6. Dynamic Programming (DP) implementations
   3. Competition Code
     1. TopCoder
     2. HackerRank
