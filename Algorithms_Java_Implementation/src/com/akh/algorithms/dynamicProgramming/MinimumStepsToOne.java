@@ -28,28 +28,39 @@ import java.util.Scanner;
  */
 public class MinimumStepsToOne {
 
+	private static int RECURSION_COUNTER = 0;
+	private static int BOTTOM_UP_COUNTER = 0;
+	private static final int USE_MEMOIZATION_DP = 1;
+	private static final int USE_BOTTOM_UP_DP = 2;
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		while(true){
-			System.out.println("Enter a number :");
-			Scanner scanner = new Scanner(System.in);
-			int n = scanner.nextInt();
-			System.out.println("Min Steps to 1 for "+n+" --> "+getMinStepsToOne_BottomUp(n));
-		}
+		System.out.println("Enter a number :");
+		Scanner scanner = new Scanner(System.in);
+		int n = scanner.nextInt();
+		scanner.close();
+		System.out.println("Min Steps to 1 for (Recursion) "+n+" --> "+getMinStepsToOne(n, USE_MEMOIZATION_DP));
+		System.out.println("Loop Count for Memoization DP - "+RECURSION_COUNTER);
+		System.out.println("Min Steps to 1 for (BottomUp DP) "+n+" --> "+getMinStepsToOne(n, USE_BOTTOM_UP_DP));
+		System.out.println("Loop Count for BottomUp DP - "+BOTTOM_UP_COUNTER);
 	}
 
-	public static int getMinStepsToOne(int n){
+	public static int getMinStepsToOne(int n, int mode){
 		//Memoization - structure to store
 		int[] memo = new int[n+1];
 		for(int i = 0 ; i < n+1; i++){
 			memo[i] = -1;
 		}
-		return getMinStepsToOne_Memo(n, memo);
+
+		if(mode == USE_MEMOIZATION_DP)
+			return getMinStepsToOne_Memo(n, memo);
+		else
+			return getMinStepsToOne_BottomUp(n);
 	}
 
 	public static int getMinStepsToOne_Memo(int n, int[] memo){
+		RECURSION_COUNTER++;
 
 		//Base case
 		if(n==1)
@@ -62,16 +73,16 @@ public class MinimumStepsToOne {
 		int result = 0;
 
 		//Result from subtracting 1
-		result = 1+getMinStepsToOne(n-1);
+		result = 1+getMinStepsToOne_Memo(n-1, memo);
 
 		if(n%2 == 0){
 			//2nd option - Result from dividing by 2. Compare result of 1st and 2nd options and find min.
-			result = Math.min(result, 1+getMinStepsToOne(n/2));
+			result = Math.min(result, 1+getMinStepsToOne_Memo(n/2, memo));
 		}
 
 		if(n%3 == 0){
 			//3rd option - Result from dividing by 3. Compare result of 1st, 2nd and 3rd options and find min.
-			result = Math.min(result, 1+getMinStepsToOne(n/3));
+			result = Math.min(result, 1+getMinStepsToOne_Memo(n/3, memo));
 		}
 
 		//Store the result - Memoization
@@ -79,21 +90,21 @@ public class MinimumStepsToOne {
 
 		return result;
 	}
-	
+
 	public static int getMinStepsToOne_BottomUp(int n){
 
-		//Base case
-		if(n==1)
-			return 0;
-	
+		//Create result array for storing results in Bottom Up DP approach
 		int[] results = new int[n+1];
 		for(int i = 0 ; i < n+1; i++){
 			results[i] = -1;
 		}
-		
+
+		//Store base case result in the result array
 		results[1] = 0;
-		
+
+		//Start from 2nd position and calculate result for every number till n
 		for(int i = 2; i <= n; i++){
+			BOTTOM_UP_COUNTER++;
 			int res = 1 + results[i-1];
 			if(i % 2 == 0)
 				res = Math.min(res, 1+results[i/2]);
@@ -101,9 +112,10 @@ public class MinimumStepsToOne {
 				res = Math.min(res, 1+results[i/3]);
 			results[i] = res;
 		}
-		
+
+		//Return the last result from result array
 		return results[n];
 	}
-	
-	
+
+
 }
