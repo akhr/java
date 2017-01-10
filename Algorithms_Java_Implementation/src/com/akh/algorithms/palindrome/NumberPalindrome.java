@@ -20,11 +20,13 @@ public class NumberPalindrome {
 		long num = scanner.nextLong();
 		System.out.println("Input : " +num);
 		if(isPalindrome(num))
-			System.out.println("yes");
+			System.out.println("1st Imple : yes");
 		else
-			System.out.println("no");
-
-
+			System.out.println("1st Imple : no");
+		if(isPalindromeMyImpl(num))
+			System.out.println("2nd Imple : yes");
+		else
+			System.out.println("2nd Imple : no");
 	}
 
 	private static boolean isPalindrome(long input){
@@ -39,6 +41,21 @@ public class NumberPalindrome {
 		}
 
 		return (rev == input) ?  true : false;
+	}
+	
+	private static boolean isPalindromeMyImpl(long input){
+		String val = String.valueOf(input);
+		int i = 0;
+		int j = val.length()-1;
+		while(i != j && i < j){
+			if(val.charAt(i) == val.charAt(j)){
+				i++;
+				j--;
+			}else{
+				return false;
+			}
+		}
+		return true;
 	}
 	  
 	
