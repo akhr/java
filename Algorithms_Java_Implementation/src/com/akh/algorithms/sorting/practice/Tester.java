@@ -20,7 +20,7 @@ public class Tester {
 		
 		//Code to provide info for the randomIntGenerator
 		int[][] randArrayInfo = new int[2][3];
-		randArrayInfo[0] = new int[]{10, 0, 100};
+		randArrayInfo[0] = new int[]{20, 0, 100};
 		randArrayInfo[1] = new int[]{10, -200, 700};
 		
 		//Initialize and add Sorters to list
@@ -28,7 +28,7 @@ public class Tester {
 		Sorter[] sorterArr = new Sorter[10];
 		Sorter bubbleSorter = new BubbleSorter();
 		Sorter insertionSorter = new InsertionSorter();
-		Sorter quickSorter = new QuickSorter();
+		Sorter quickSorter = new QuickSorter_My_Impl();
 		Sorter mergerSorter = new MergeSorter();
 		sorterArr[noOfSorters++] = bubbleSorter;
 		sorterArr[noOfSorters++] = insertionSorter;
