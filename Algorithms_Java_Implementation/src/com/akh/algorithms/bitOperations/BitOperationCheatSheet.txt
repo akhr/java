@@ -1,0 +1,9 @@
+UNset a bit -->  num &= ~(1 << position)
+
+SET a bit -->  num |= (1 << position)
+
+TOGGLE a bit -->  num ^= (1 << position)
+// Take 1 which is 0000 0001 and left shift the true bit to any position you want and then do either AND OR XOR operation.
+
+Clear the lowesr
+    
