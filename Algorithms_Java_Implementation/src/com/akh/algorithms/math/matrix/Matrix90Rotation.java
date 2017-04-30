@@ -13,14 +13,9 @@ public class Matrix90Rotation {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int N = 5;
-		int index = 1;
-		int[][] matrix = new int[N][N];
-		for(int i=0; i<N; i++){
-			for(int j=0; j<N; j++){
-				matrix[i][j] = index++;
-			}
-		}
+		int N = 4;
+		int[][] matrix = createMatrix(N, N);
+		
 		System.out.println("Original Matrix :");
 		printMatrix(matrix, N);
 		System.out.println("\n\n90 Degrees Rotated Matrix :");
@@ -34,6 +29,17 @@ public class Matrix90Rotation {
 		
 		System.out.println("\n\n360 Degrees Rotated Matrix :");
 		printMatrix(rotate90(matrix, N), N);
+	}
+	
+	private static int[][] createMatrix(int M, int N){
+		int index = 1;
+		int[][] matrix = new int[M][N];
+		for(int i=0; i<M; i++){
+			for(int j=0; j<N; j++){
+				matrix[i][j] = index++;
+			}
+		}
+		return matrix;
 	}
 	
 	private static void printMatrix(int[][] matrix, int N){
