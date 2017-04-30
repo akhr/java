@@ -73,5 +73,9 @@ public class ResetSpecificRowColumnIfOneElementIsZero {
 		System.out.println("Solution Matrix : ");
 		printMatrix(matrix, M, N);
 	}
+	
+	//Need to implement - What if multiple items are zero?
+	//Use helper matrix 
+	//Refer Cracking Coding pg180.
 
 }
