@@ -16,7 +16,7 @@ public class Utils {
 	public static int[] intGenerator(int size, int min, int max){
 		int[] array = new int[size];
 		Random random = new Random();
-		for(int i=0; i<size-1; i++){
+		for(int i=0; i<size; i++){
 			array[i] = random.nextInt((max - min) + 1) + min;
 		}
 		return array;
