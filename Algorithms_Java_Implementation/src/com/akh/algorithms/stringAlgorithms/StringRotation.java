@@ -15,17 +15,17 @@ public class StringRotation {
 			System.out.println(compare(str1,str2));
 		}*/
 
-		System.out.println("O/p = "+compare(0, "geeksforgeeks", "geeksgeeksfo1", 0));
+		System.out.println("Are Equal: "+compare(0, "geeksforgeeks", "geeksgeeksfor", 0));
 	}
 	
-	private static int compare(int recursiveCount, String s1, String s2, int rotateCount){
+	private static boolean compare(int recursiveCount, String s1, String s2, int rotateCount){
 		if(recursiveCount == s1.length())
-			return 0;
+			return false;;
 		
 		if(s1.length() != s2.length())
-			return 0;
+			return false;
 		if(s1.equalsIgnoreCase(s2)){
-			return 1;
+			return true;
 		}else{
 			s1 = rotate(s1, rotateCount);
 			return compare(++recursiveCount, s1, s2, 1);
@@ -39,8 +39,7 @@ public class StringRotation {
 		StringBuilder sB = new StringBuilder();
 		sB.append(str.substring(count, str.length()));
 		sB.append(str.substring(0, count));
-		System.out.println("Rotated Str for "+str+" by "+count+" = "+sB.toString());
+//		System.out.println("Rotated Str for "+str+" by "+count+" = "+sB.toString());
 		return sB.toString();
 	}
-
 }
