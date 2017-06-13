@@ -16,7 +16,7 @@ public class Utils {
 	public static int[] intGenerator(int size, int min, int max){
 		int[] array = new int[size];
 		Random random = new Random();
-		for(int i=0; i<size-1; i++){
+		for(int i=0; i<size; i++){
 			array[i] = random.nextInt((max - min) + 1) + min;
 		}
 		return array;
@@ -32,6 +32,18 @@ public class Utils {
 			else
 				System.out.print(" "+array[i]);
 		}
+	}
+	
+	public static void swap(int a, int b){
+		int temp = a;
+		a = b;
+		b = temp;
+	}
+	
+	public static void swapInAnArray(int[] arr, int position1, int position2){
+		int temp = arr[position1];
+		arr[position1] = arr[position2];
+		arr[position2] = temp;
 	}
 
 }
