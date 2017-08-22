@@ -13,8 +13,8 @@ public class FindCommonItemsFrom2SortedArrays {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] a = new int[]{1,2,3,4,9,10,12,15};
-		int[] b = new int[]{4,7,8,10,11,12};
+		int[] a = new int[]{1,2,3,4,9,10,12,15,21};
+		int[] b = new int[]{4,7,8,10,11,12,21};
 		System.out.println("MatchCount = "+getCommonItemsCount(a, b));
 	}
 	
