@@ -33,5 +33,17 @@ public class Utils {
 				System.out.print(" "+array[i]);
 		}
 	}
+	
+	public static void swap(int a, int b){
+		int temp = a;
+		a = b;
+		b = temp;
+	}
+	
+	public static void swapInAnArray(int[] arr, int position1, int position2){
+		int temp = arr[position1];
+		arr[position1] = arr[position2];
+		arr[position2] = temp;
+	}
 
 }
