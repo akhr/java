@@ -60,7 +60,7 @@ public class IsArray1RotatedVersionOfArray2 {
 		String p = sB.toString();
 		System.out.println("s = "+s);
 		System.out.println("b = "+p);
-		return IsPatternASubString.isSubString(s, p);
+		return IsPatternASubString.isSubString_KMP_Impl(s, p);
 	}
 
 
