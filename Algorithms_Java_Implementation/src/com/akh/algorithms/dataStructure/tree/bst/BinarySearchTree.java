@@ -19,6 +19,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	BinarySearchTree(T data){
 		root = new BinaryTreeNode<T>(data);
 	}
+	
+	public BinaryTreeNode<T> getRoot(){
+		return this.root;
+	}
 
 	public boolean insert(T data){
 		if(data == null)
