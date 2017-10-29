@@ -2,6 +2,8 @@ package com.akh.algorithms.dataStructure.tree.bst;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.LinkedList;
+
 import org.junit.Test;
 
 /**
@@ -18,6 +20,17 @@ public class TreeSizeAndHeight {
 		return depth;
 	}
 
+	private static int getTreeHeight_Better(BinaryTreeNode<Integer> currNode){
+		if(currNode == null)
+			return 0;
+		int leftSubTreeHt = getTreeHeight_Better(currNode.getLeft());
+		int rightSubTreeHt = getTreeHeight_Better(currNode.getRight());
+		
+		int maxSubTreeHt = Math.max(leftSubTreeHt, rightSubTreeHt);
+		
+		return maxSubTreeHt + 1;
+	}
+
 	private static int getTreeSize(BinaryTreeNode<Integer> currNode){
 		if (currNode == null)
 			return 0;
@@ -29,6 +42,14 @@ public class TreeSizeAndHeight {
 		int[] arr = new int[]{1, 5, 7, 12, 14, 27, 33, 64, 78, 90};
 		BinaryTreeNode<Integer> root = ConstructBSTFromSortedArray.constructBST(arr, 0, arr.length-1);
 		int depth = getTreeHeight(root);
+		assertEquals(depth, 4);
+	}
+	
+	@Test 
+	public void checkDepth_Better(){
+		int[] arr = new int[]{1, 5, 7, 12, 14, 27, 33, 64, 78, 90};
+		BinaryTreeNode<Integer> root = ConstructBSTFromSortedArray.constructBST(arr, 0, arr.length-1);
+		int depth = getTreeHeight_Better(root);
 		assertEquals(depth, 4);
 	}
 
