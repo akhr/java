@@ -1,4 +1,4 @@
-package com.thesaka.designPatterns.decorator;
+package com.ak.decorator;
 
 //The abstract Coffee class defines the functionality of Coffee implemented by decorator
 public abstract class Coffee {

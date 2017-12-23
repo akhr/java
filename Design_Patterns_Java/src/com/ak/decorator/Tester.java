@@ -1,4 +1,4 @@
-package com.thesaka.designPatterns.decorator;
+package com.ak.decorator;
 
 public class Tester {
 

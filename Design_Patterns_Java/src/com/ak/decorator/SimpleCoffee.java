@@ -1,4 +1,4 @@
-package com.thesaka.designPatterns.decorator;
+package com.ak.decorator;
 
 //Extension of a simple coffee without any extra ingredients
 public class SimpleCoffee extends Coffee {

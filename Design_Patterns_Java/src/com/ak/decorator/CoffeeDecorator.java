@@ -1,4 +1,4 @@
-package com.thesaka.designPatterns.decorator;
+package com.ak.decorator;
 
 //Abstract decorator class - note that it extends Coffee abstract class
 public class CoffeeDecorator extends Coffee {

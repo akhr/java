@@ -1,4 +1,4 @@
-package com.thesaka.designPatterns.decorator;
+package com.ak.decorator;
 
 //Decorator Whip that mixes whip with coffee.
 //Note it extends CoffeeDecorator.

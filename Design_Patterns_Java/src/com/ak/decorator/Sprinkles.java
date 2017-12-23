@@ -1,4 +1,4 @@
-package com.thesaka.designPatterns.decorator;
+package com.ak.decorator;
 
 //Decorator Sprinkles that mixes sprinkles with coffee.
 //Note it extends CoffeeDecorator.
