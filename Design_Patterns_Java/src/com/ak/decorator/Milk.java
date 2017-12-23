@@ -1,5 +1,4 @@
-
-package com.thesaka.designPatterns.decorator;
+package com.ak.decorator;
 
 //Decorator Milk that mixes milk with coffee.
 //Note it extends CoffeeDecorator.
