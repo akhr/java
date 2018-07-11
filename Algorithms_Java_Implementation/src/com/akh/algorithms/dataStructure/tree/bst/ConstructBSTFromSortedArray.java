@@ -1,14 +1,10 @@
 package com.akh.algorithms.dataStructure.tree.bst;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import com.akh.algorithms.dataStructure.tree.dfs.FindDeepestNode;
-
-import static org.junit.Assert.*;
-
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
 
 /**
  *  @fileName: ConstructBSTFromSortedArray.java

@@ -1,12 +1,10 @@
 package com.akh.algorithms.dataStructure.tree.bst;
 
-import com.akh.utils.Utils;
-
 public class Tester {
 
 	public static void main(String[] args) {
 		
-		BinarySearchTree<MyData> bst = new BinarySearchTree<MyData>();
+		BinarySearchTree_Jul_2018<MyData> bst = new BinarySearchTree_Jul_2018<MyData>();
 		int min = 10;
 		int max = 1000;
 		int size = 10;
@@ -17,8 +15,7 @@ public class Tester {
 	
 		for(int i=0; i<rands.length; i++){
 			MyData dataModel = new MyData(rands[i]);
-			BinaryTreeNode<MyData> node = new BinaryTreeNode<MyData>(dataModel);
-			bst.insert(node);
+			bst.insert(dataModel);
 			if(i==7)
 				search = dataModel;
 			System.out.println("Inserted Node for Data : "+dataModel.value);
