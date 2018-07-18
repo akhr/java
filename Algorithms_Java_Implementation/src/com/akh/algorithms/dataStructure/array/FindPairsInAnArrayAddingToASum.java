@@ -36,6 +36,8 @@ public class FindPairsInAnArrayAddingToASum {
 		}
 	}
 	
+	
+	//BigO = O(N) --> No item in the array gets revisted. At max only once.
 	public static LinkedList<ResultPair> getPairsAddingToSum(int[] items, int prescribedSum){
 		LinkedList<ResultPair> list = new LinkedList<>();
 		
