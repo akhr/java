@@ -34,9 +34,9 @@ public class ConstructBSTFromSortedArray {
 	//============================================  TEST  ============================================ //
 	@Test
 	public void checkBSTConstruction_1(){
-		int[] arr = new int[]{1, 2, 3};
+		int[] arr = new int[]{1, 2, 3, 4, 5, 6};
 		BinaryTreeNode<Integer> root = constructBST(arr, 0, arr.length-1);
-		assertEquals(2, root.getData().intValue());
+		assertEquals(4, root.getData().intValue());
 		assertEquals(3, FindDeepestNode.getDeepestNodeUsingDFS(root).getData().intValue());
 	}
 
