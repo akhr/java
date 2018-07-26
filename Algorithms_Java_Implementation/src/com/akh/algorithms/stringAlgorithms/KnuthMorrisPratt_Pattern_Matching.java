@@ -7,12 +7,12 @@ import java.util.Arrays;
 import org.junit.Test;
 
 /**
- *  @fileName: IsPatternASubString.java
+ *  @fileName: KnuthMorrisPratt_Pattern_Matching.java
  *  @author: Akhash Ramamurthy
  *  Created on: Aug 21, 2017
  */
 
-public class IsPatternASubString {
+public class KnuthMorrisPratt_Pattern_Matching {
 	
 	/********************************* Brute Force - O(N*M) ******************************************************/
 		public static boolean containsSubString_bruteForce(String string, String pattern){
