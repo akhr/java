@@ -88,4 +88,12 @@ public class CheckIfArrayIsIncreasingSquence {
 		System.out.println("Is Increasing Sequence - "+incrSequence.almostIncreasingSequence(arr));
 		assertEquals(false, incrSequence.almostIncreasingSequence(arr));
 	}	
+	
+	@Test
+	public void test_NO_Delete() {
+		CheckIfArrayIsIncreasingSquence incrSequence = new CheckIfArrayIsIncreasingSquence();
+		int[] arr = new int[]{1,2,5,6,7};
+		System.out.println("Is Increasing Sequence - "+incrSequence.almostIncreasingSequence(arr));
+		assertEquals(false, incrSequence.almostIncreasingSequence(arr));
+	}
 }
