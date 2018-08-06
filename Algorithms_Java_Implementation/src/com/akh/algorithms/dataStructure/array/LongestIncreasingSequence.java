@@ -55,13 +55,14 @@ public class LongestIncreasingSequence {
 		case N_SQUARE:
 			return lengthOfLIS_N_SQUARE(nums);
 		case N_LOG_N:
-
+			return lengthOfLIS_N_LOG_N(nums);
 		}		
 		return 0;
 	}
 
 
 	/**
+	 * O(2^N)
 	 * Most important is the "prev".
 	 * Even for 1st item set prev = Integer.MIN_VALUE
 	 * Because the problem requires to compare 2 numbers
@@ -85,6 +86,7 @@ public class LongestIncreasingSequence {
 
 	
 	/**
+	 * O(N^2)
 	 * Create a helper array of length = inputArr
 	 * Fill helper array with 1
 	 * Helper arr will carry the longest sequence until index i ==> helper[i] --> longest sequence until index i
@@ -113,6 +115,38 @@ public class LongestIncreasingSequence {
 		System.out.println("Helper -- "+Arrays.toString(longestUntilThatPoint));
 		return lis;
 	}
+	
+	/**
+	 * O(NlogN)
+	 * Create helper array of size a.len
+	 * This array will store items from the array in sorted manner
+	 * Length of this array will give your the o/p
+	 * NOTE: This array contents is not the actual LIS 
+	 */
+	
+	private int lengthOfLIS_N_LOG_N(int[] nums) {
+		int[] helper = new int[nums.length];
+		int helperTail = -1;
+		for(int i=0; i<nums.length; i++){
+			@SuppressWarnings("unused")
+			int currTail = helperTail == -1 ?  -1 : helper[helperTail];
+			if(helperTail == -1 || nums[i] > helper[helperTail]){
+				//append 
+				helper[++helperTail] = nums[i];
+			}else{
+				int searchResult = Arrays.binarySearch(helper, 0, helperTail, nums[i]);
+				if(searchResult < 0){
+					//item NOT found - returns -(insertionPoint+1)
+					int insertionPoint = -(searchResult+1);
+					helper[insertionPoint] = nums[i];
+				}
+				
+			}
+		}
+		return helperTail+1;
+	}
+	
+	//=============================      TEST     =======================================
 
 	@Ignore
 	@Test 
@@ -132,6 +166,7 @@ public class LongestIncreasingSequence {
 		assertEquals(6, lis.lengthOfLIS(arr, ALGO_TYPE.RECURSION));
 	}
 	
+	@Ignore
 	@Test
 	public void testLIS_N_SQUARE_1() {
 		LongestIncreasingSequence lis = new LongestIncreasingSequence();
@@ -141,6 +176,7 @@ public class LongestIncreasingSequence {
 		assertEquals(4, result);
 	}
 
+	@Ignore
 	@Test
 	public void testLIS_N_SQUARE_2() {
 		LongestIncreasingSequence lis = new LongestIncreasingSequence();
@@ -149,6 +185,22 @@ public class LongestIncreasingSequence {
 		System.out.println("LIS - "+result);
 		assertEquals(6, result);
 	}
+	
+	@Test
+	public void testLIS_N_LOG_N_1() {
+		LongestIncreasingSequence lis = new LongestIncreasingSequence();
+		int[] arr = new int[]{10,9,2,5,3,7,101,18};
+		int result = lis.lengthOfLIS(arr, ALGO_TYPE.N_LOG_N);
+		System.out.println("LIS - "+result);
+		assertEquals(4, result);
+	}
 
-
+	@Test
+	public void testLIS_N_LOG_N_2() {
+		LongestIncreasingSequence lis = new LongestIncreasingSequence();
+		int[] arr = new int[]{15, 27, 14, 38, 26, 55, 46, 65, 85};
+		int result = lis.lengthOfLIS(arr, ALGO_TYPE.N_LOG_N);
+		System.out.println("LIS - "+result);
+		assertEquals(6, result);
+	}
 }
