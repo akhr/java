@@ -4,6 +4,9 @@ Find Min or Max of something.
 	2. Definitely need to use Math.min or max.
 	2. Need to compare two results. one with considering a condition and one without considering the condition
 	3. minVar = Math.min(result1, result2) 
+	4. Initialization
+		a. To find min --> minVar = Integer.MAX_VALUE
+		b. To find max --> maxVar = Integer.MIN_VALUE
 	
 	Eg: LongestIncreasingSequence
 		MaxProfitFromAStock
