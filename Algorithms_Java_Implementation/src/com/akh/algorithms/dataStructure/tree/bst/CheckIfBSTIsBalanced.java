@@ -39,19 +39,18 @@ public class CheckIfBSTIsBalanced {
 	//Will visit every single node for every node above it. So visits each node multiple times.
 	public static boolean isBalancedBSTTree_NotEfficient(BinaryTreeNode<Integer> root){
 		if(root == null)
+			return true; //base case
+		int heightDiff = getHeight(root.getLeft()) - getHeight(root.getRight());
+		if(Math.abs(heightDiff) > 1){
 			return false;
-		
-		int leftSubTreeHeight = getHeight(root.getLeft());
-		System.out.println("Left Height of root "+root.getData()+" is "+leftSubTreeHeight);
-		int rightSubTreeHeight = getHeight(root.getRight());
-		System.out.println("Right Height of root "+root.getData()+" is "+rightSubTreeHeight);
-		
-		return Math.abs(leftSubTreeHeight - rightSubTreeHeight) <= 1;
+		}else{
+			return isBalancedBSTTree_NotEfficient(root.getLeft()) && isBalancedBSTTree_NotEfficient(root.getRight());
+		}
 	}
 	
 	private static int getHeight(BinaryTreeNode<Integer> currNode){
 		if(currNode == null)
-			return 0;
+			return -1;
 		int lHgt = getHeight(currNode.getLeft());
 		int rHgt = getHeight(currNode.getRight());
 		int maxHgt = Math.max(lHgt, rHgt);
