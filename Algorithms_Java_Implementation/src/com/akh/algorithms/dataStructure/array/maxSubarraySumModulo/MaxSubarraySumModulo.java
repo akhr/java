@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.akh.algorithms.dynamicProgramming.maxSubarraySumModulo;
+package com.akh.algorithms.dataStructure.array.maxSubarraySumModulo;
 
 import java.util.Scanner;
 
