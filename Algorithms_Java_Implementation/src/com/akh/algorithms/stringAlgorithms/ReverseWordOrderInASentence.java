@@ -13,7 +13,7 @@ import org.junit.Test;
  *  Created on: Aug 9, 2018
  */
 
-public class ReverseWordsInASentence {
+public class ReverseWordOrderInASentence {
 	public void reverseWords(char[] str) {
 		int len = str.length;
 		
@@ -57,7 +57,7 @@ public class ReverseWordsInASentence {
 	
 	@Test
 	public void test_1() {
-		ReverseWordsInASentence reverse = new ReverseWordsInASentence();
+		ReverseWordOrderInASentence reverse = new ReverseWordOrderInASentence();
 		char[] str =  {'t','h','e',' ','s','k','y',' ','i','s',' ','b','l','u','e'};
 		char[] expected = {'b','l','u','e',' ','i','s',' ','s','k','y',' ','t','h','e'};
 		reverse.reverseWords(str);
