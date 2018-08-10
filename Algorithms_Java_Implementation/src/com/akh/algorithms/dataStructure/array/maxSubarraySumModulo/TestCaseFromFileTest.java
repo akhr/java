@@ -1,14 +1,14 @@
 /**
  * 
  */
-package com.akh.algorithms.dynamicProgramming.maxSubarraySumModulo;
+package com.akh.algorithms.dataStructure.array.maxSubarraySumModulo;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import com.akh.algorithms.dynamicProgramming.maxSubarraySumModulo.MaxSubarraySumModulo.TestCaseData;
+import com.akh.algorithms.dataStructure.array.maxSubarraySumModulo.MaxSubarraySumModulo.TestCaseData;
 
 import sun.util.logging.resources.logging;
 

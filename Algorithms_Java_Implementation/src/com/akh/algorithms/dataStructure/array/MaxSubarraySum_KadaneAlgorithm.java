@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.akh.algorithms.dynamicProgramming;
+package com.akh.algorithms.dataStructure.array;
 
 import static org.junit.Assert.assertEquals;
 
