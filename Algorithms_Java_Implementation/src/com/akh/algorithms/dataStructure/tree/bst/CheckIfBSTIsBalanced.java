@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.akh.algorithms.dataStructure.tree.PrintTree;
+
 /**
  *  @fileName: CheckIfBSTIsBalanced.java
  *  @author: Akhash Ramamurthy

@@ -1,4 +1,4 @@
-package com.akh.algorithms.dataStructure.tree.bst;
+package com.akh.algorithms.dataStructure.tree;
 
 import static org.junit.Assert.assertEquals;
 
@@ -6,6 +6,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import org.junit.Test;
+
+import com.akh.algorithms.dataStructure.tree.bst.BinaryTreeNode;
+import com.akh.algorithms.dataStructure.tree.bst.ConstructBSTFromSortedArray;
 
 /**
  *  @fileName: PrintTree.java

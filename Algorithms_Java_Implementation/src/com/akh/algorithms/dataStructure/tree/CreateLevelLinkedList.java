@@ -1,4 +1,4 @@
-package com.akh.algorithms.dataStructure.tree.bst;
+package com.akh.algorithms.dataStructure.tree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -7,6 +7,9 @@ import java.util.Queue;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+
+import com.akh.algorithms.dataStructure.tree.bst.BinaryTreeNode;
+import com.akh.algorithms.dataStructure.tree.bst.ConstructBSTFromSortedArray;
 
 
 

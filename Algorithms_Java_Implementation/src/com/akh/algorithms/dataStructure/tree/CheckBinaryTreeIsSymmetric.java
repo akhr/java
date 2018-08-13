@@ -1,4 +1,4 @@
-package com.akh.algorithms.dataStructure.tree.bst;
+package com.akh.algorithms.dataStructure.tree;
 
 import static org.junit.Assert.assertEquals;
 
