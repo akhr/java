@@ -131,6 +131,15 @@ Could you solve it with constant space complexity? (The output array does not co
 	}
 	
 	@Test
+	public void test_N_2() {
+		ProductExceptSelf productOfAllItemsInAnArray = new ProductExceptSelf();
+		int[] input = {1,2,3,4,5,6};
+		int[] output = productOfAllItemsInAnArray.getProdArr_Non_Div_N(input);
+		int[] expected = {720,360,240,180,144,120};
+		assertArrayEquals(expected, output);
+	}
+	
+	@Test
 	public void test_N_With_Mem() {
 		ProductExceptSelf productOfAllItemsInAnArray = new ProductExceptSelf();
 		int[] input = {5,6,2,1,4,3};
