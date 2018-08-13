@@ -1,4 +1,6 @@
-package com.akh.algorithms.dataStructure.tree.bst;
+package com.akh.algorithms.dataStructure.tree;
+
+import com.akh.algorithms.dataStructure.tree.bst.BinaryTreeNode;
 
 /**
  *  @fileName: TreeTraversal.java
