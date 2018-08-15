@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.akh.algorithms.math.matrix;
+package com.akh.algorithms.dataStructure.array.matrix;
 
 /**
  * @author Akhash Ramamurthy

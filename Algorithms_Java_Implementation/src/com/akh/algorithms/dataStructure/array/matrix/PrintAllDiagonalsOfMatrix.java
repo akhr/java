@@ -1,4 +1,4 @@
-package com.akh.algorithms.math.matrix;
+package com.akh.algorithms.dataStructure.array.matrix;
 
 import java.util.HashMap;
 import java.util.Map;
