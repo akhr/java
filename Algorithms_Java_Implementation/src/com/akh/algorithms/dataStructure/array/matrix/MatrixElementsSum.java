@@ -1,4 +1,4 @@
-package com.akh.algorithms.math.matrix;
+package com.akh.algorithms.dataStructure.array.matrix;
 
 /**
  *  @fileName: MatrixElementsSum.java
