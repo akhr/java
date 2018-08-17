@@ -1,1 +1,73 @@
+=====================================================================================================================
+Find Min or Max of something. 
+	1. Maintain a variable minVar or maxVar
+	2. Definitely need to use Math.min or max.
+	2. Need to compare two results. one with considering a condition and one without considering the condition
+	3. minVar = Math.min(result1, result2) 
+	4. Initialization
+		a. To find min --> minVar = Integer.MAX_VALUE
+		b. To find max --> maxVar = Integer.MIN_VALUE
+	
+	Eg: LongestIncreasingSequence
+		MaxProfitFromAStock
+		CheckIfArrayIsIncreasingSquence
+		MinimumStepsToOne
+		DeleteMinCharsToMakeStringPalindrome
+	
+	
+=====================================================================================================================
+Number Problems
+	1. To get digits from given num - 109283 --> [1,0,9,2,8,3] 
+	2. while(num > 0){
+			int quotient = num / 10;
+			int reminder = num % 10;
+			digitsArr[reminder] += 1;
+			num = quotient;
+		}
+	3. Digits problem... There are only 0-9 digits. So use an int[10] array 
+	
+=====================================================================================================================
+Tree 
+	- Traversal 
+		- Preorder -> parent-left-right
+		- Inorder -> left-parent-right
+		- Postorder -> left-right-parent
+		- Can be done using recursion or iteratively
+		- Iteration requires 
+			- Create stack
+			- Variable Curr = root
+			- DONT push root into stack
+			- You shd only push this CURR node into the stack... nothing other than that. So update curr appropriately
+			- No pushing curr.left or curr.right to stack
+			- while(curr != null || !stack.isEmpty){ ..}
+				public void inOrder(TreeNode root) {
+					Stack<TreeNode> stack = new Stack<TreeNode>();
+					TreeNode curr = root;
+					
+					while(curr != null || !stack.isEmpty()) {
+						 while(curr != null) {
+							 stack.push(curr);
+							 curr = curr.left;
+						 }
+						 curr = stack.pop();
+						 System.out.println("Visiting node - "+curr.val);
+						 curr = curr.right;
+					}
+				}
+			-
+=====================================================================================================================
+=====================================================================================================================
+=====================================================================================================================
 
+=====================================================================================================================
+=====================================================================================================================
+=====================================================================================================================
+
+=====================================================================================================================
+=====================================================================================================================
+=====================================================================================================================
+
+=====================================================================================================================
+=====================================================================================================================
+
+=====================================================================================================================	
