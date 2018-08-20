@@ -13,32 +13,33 @@ import com.akh.algorithms.dataStructure.tree.TreeZigZagLevelOrder.TreeNode;
  */
 
 public class InOrder_Using_Stack {
-	
+
 	public class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
 		TreeNode(int x) { val = x; }
 	}
-	
-	
+
+
 	//=======================================================================================
-	
+
 	public void inOrder_iterative(TreeNode root) {
 		Stack<TreeNode> stack = new Stack<TreeNode>();
 		TreeNode curr = root;
-		
+
 		while(curr != null || !stack.isEmpty()) {
-			 while(curr != null) {
-				 stack.push(curr);
-				 curr = curr.left;
-			 }
-			 curr = stack.pop();
-			 System.out.println("Visiting node (I) - "+curr.val);
-			 curr = curr.right;
+			if(curr != null) {
+				stack.push(curr);
+				curr = curr.left;
+			}else {
+				curr = stack.pop();
+				System.out.println("Visiting node (I) - "+curr.val);
+				curr = curr.right;
+			}
 		}
 	}
-	
+
 	public void inOrder_recursive(TreeNode root) {
 		if(root == null)
 			return;
@@ -46,12 +47,12 @@ public class InOrder_Using_Stack {
 		System.out.println("Visiting Node (R) - "+root.val);
 		inOrder_recursive(root.right);
 	}
-	
+
 	//=======================================================================================
-	
-	
-	
-	
+
+
+
+
 	private TreeNode constructTree(int[] data, int index) {
 		if(index > data.length-1)
 			return null;
@@ -65,15 +66,15 @@ public class InOrder_Using_Stack {
 		node.right = constructTree(data, getRightChildIndex(index));
 		return node;
 	}
-	
+
 	private int getLeftChildIndex(int parentIndex) {
 		return (parentIndex*2)+1;
 	}
-	
+
 	private int getRightChildIndex(int parentIndex) {
 		return (parentIndex*2)+2;
 	}
-	
+
 	@Test
 	public void test_recursive() {
 		InOrder_Using_Stack inOrder = new InOrder_Using_Stack();
@@ -82,7 +83,7 @@ public class InOrder_Using_Stack {
 		System.out.println("Recursive");
 		inOrder_recursive(root);
 	}
-	
+
 	@Test
 	public void test_iterative() {
 		InOrder_Using_Stack inOrder = new InOrder_Using_Stack();
