@@ -9,6 +9,16 @@ import org.junit.Test;
  *  @fileName: SearchBinaryTree.java
  *  @author: Akhash Ramamurthy
  *  Created on: Aug 24, 2018
+ *  
+ *  Given the following binary tree:  root = [3,5,1,6,2,0,8,null,null,7,4]
+
+        _______3______
+       /              \
+    ___5__          ___1__
+   /      \        /      \
+   6      _2       0       8
+         /  \
+         7   4
  */
 
 public class SearchBinaryTree {
