@@ -15,6 +15,8 @@ import com.akh.algorithms.dataStructure.tree.bst.ConstructBSTFromSortedArray;
  */
 
 public class DepthFirstSearch {
+	
+	//Clue : Micron SD card - Stack & Depth First Search
 
 	private static boolean doDFS(BinaryTreeNode<Integer> currNode, int searchVal){
 		if(currNode == null)

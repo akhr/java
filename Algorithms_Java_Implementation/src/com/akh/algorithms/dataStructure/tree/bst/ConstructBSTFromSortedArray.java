@@ -1,14 +1,10 @@
 package com.akh.algorithms.dataStructure.tree.bst;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import com.akh.algorithms.dataStructure.tree.dfs.FindDeepestNode;
-
-import static org.junit.Assert.*;
-
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
 
 /**
  *  @fileName: ConstructBSTFromSortedArray.java
@@ -38,9 +34,9 @@ public class ConstructBSTFromSortedArray {
 	//============================================  TEST  ============================================ //
 	@Test
 	public void checkBSTConstruction_1(){
-		int[] arr = new int[]{1, 2, 3};
+		int[] arr = new int[]{1, 2, 3, 4, 5, 6};
 		BinaryTreeNode<Integer> root = constructBST(arr, 0, arr.length-1);
-		assertEquals(2, root.getData().intValue());
+		assertEquals(4, root.getData().intValue());
 		assertEquals(3, FindDeepestNode.getDeepestNodeUsingDFS(root).getData().intValue());
 	}
 
