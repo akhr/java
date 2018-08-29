@@ -2,6 +2,8 @@ package com.akh.algorithms.stringAlgorithms;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 
 public class StringCompression {
@@ -60,57 +62,55 @@ public class StringCompression {
 		if(chars == null || chars.length <= 0)
 			return 0;
 		if(chars.length == 1)
-			return 2;
-		
-		int lo = 0, hi = lo, lastWrite = -1;
-		
-		while(hi < chars.length) {
-			char ch = chars[lo];
-			while(hi<chars.length-1 && chars[hi+1] == ch) {
-				hi++;
+			return 1;
+
+		int opLen = 0;
+		int i=0;
+
+		while(i < chars.length) {
+			char c = chars[i];
+			int count = 0;
+			while(i < chars.length && chars[i] == c) {
+				i++;
+				count++;
 			}
-			int count = hi - lo + 1;
-			int tmpCnt = count, dCnt = 0;
-			while(tmpCnt > 0) {
-				dCnt++;
-				tmpCnt /= 10;
+
+			chars[opLen++] = c;
+			if(count != 1) {
+				for(char c1 : String.valueOf(count).toCharArray())
+					chars[opLen++] = c1;
 			}
-			
-			if(hi < chars.length-1) {
-				lastWrite += 1+1+dCnt;
-			}
-			lo = hi = hi+1;
 		}
-		return lastWrite+1;
+		return opLen;
 	}
-	
+
 	@Test
 	public void test_1() {
 		StringCompression sCompress = new StringCompression();
 		String input = "aaabbc";
-		String output = "a3b2c1";
+		String output = "a3b2c";
 		System.out.println("Compressed String Length: "+sCompress.compress(input.toCharArray()));
 		assertEquals(output.length(), sCompress.compress(input.toCharArray()));
 	}
-	
+
 	@Test
 	public void test_2() {
 		StringCompression sCompress = new StringCompression();
 		String input = "a";
-		String output = "a1";
+		String output = "a";
 		System.out.println("Compressed String Length: "+sCompress.compress(input.toCharArray()));
 		assertEquals(output.length(), sCompress.compress(input.toCharArray()));
 	}
-	
+
 	@Test
 	public void test_3() {
 		StringCompression sCompress = new StringCompression();
 		String input = "abc";
-		String output = "a1b1c1";
+		String output = "abc";
 		System.out.println("Compressed String Length: "+sCompress.compress(input.toCharArray()));
 		assertEquals(output.length(), sCompress.compress(input.toCharArray()));
 	}
-	
+
 	@Test
 	public void test_4() {
 		StringCompression sCompress = new StringCompression();
@@ -119,4 +119,32 @@ public class StringCompression {
 		System.out.println("Compressed String Length: "+sCompress.compress(input.toCharArray()));
 		assertEquals(output.length(), sCompress.compress(input.toCharArray()));
 	}
+
+	@Test
+	public void test_5() {
+		StringCompression sCompress = new StringCompression();
+		String input = "abbbbbbbbbbbb";
+		String output = "ab12";
+		System.out.println("Compressed String Length: "+sCompress.compress(input.toCharArray()));
+		assertEquals(output.length(), sCompress.compress(input.toCharArray()));
+	}
+
+	@Test
+	public void test_6() {
+		StringCompression sCompress = new StringCompression();
+		String input = "aa";
+		String output = "a2";
+		System.out.println("Compressed String Length: "+sCompress.compress(input.toCharArray()));
+		assertEquals(output.length(), sCompress.compress(input.toCharArray()));
+	}
+
+	@Test
+	public void test_7() {
+		StringCompression sCompress = new StringCompression();
+		String input = "zzj";
+		String output = "z2j";
+		System.out.println("Compressed String Length: "+sCompress.compress(input.toCharArray()));
+		assertEquals(output.length(), sCompress.compress(input.toCharArray()));
+	}
+
 }
