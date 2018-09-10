@@ -4,7 +4,7 @@
  *  Created on: Jun 10, 2017
  */
 
-package com.akh.algorithms.rangeProblems;
+package com.akh.algorithms.dataStructure.array.range;
 
 import com.akh.utils.Utils;
 
