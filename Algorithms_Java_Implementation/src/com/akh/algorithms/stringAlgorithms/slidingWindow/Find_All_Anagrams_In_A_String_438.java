@@ -52,6 +52,8 @@ import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.SharedInputSt
 
 public class Find_All_Anagrams_In_A_String_438 {
 
+	//Checkout 00_IMP_README.txt in this dir
+	
 	public List<Integer> findAnagrams(String s, String p) {
 		List<Integer> resList = new ArrayList<>();
 		
