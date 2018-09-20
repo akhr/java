@@ -39,6 +39,7 @@ public class Longest_Substring_WO_Repeating_3 {
 	// If uniqueness is broken then it increments. 
 	// You need to shrink window inorder and make counter == 1 to restore UNIQUEness
 	
+	// Checkout 00_IMP_README.txt in this dir
 
 	public int lengthOfLongestSubstring(String s) {
 		if(s==null || s.length()<=0)
