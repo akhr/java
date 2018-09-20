@@ -37,7 +37,17 @@
       BFS - Visiting nodes of a tree level-wise
       If sorted array - Have two pointers left and right and move inwards
 
+
 --------------------------------------------------------------------------------------------
+
+Difference between SubString and SubSequence
+		Input: "pwwkew"
+		"pwke" is a subsequence and not a substring.
+		"pwwke" is a subString (NO SKIPPING)
+
+--------------------------------------------------------------------------------------------
+
+
 Array: Find Min or Max of something.
         Maintain a variable minVar or maxVar
         Definitely need to use Math.min or max.
