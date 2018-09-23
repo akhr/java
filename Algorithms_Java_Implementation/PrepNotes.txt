@@ -248,7 +248,12 @@ Array: Sliding Window
       }
 --------------------------------------------------------------------------------------------
 
-String: Sliding Window - LC76
+String: Sliding Window - 
+	1. Check out /Algorithms_Java_Implementation/src/com/akh/algorithms/stringAlgorithms/slidingWindow/00_IMP_README.txt 
+	2. Understand the template used below
+
+
+LC76
 
     public String minWindow(String s, String t) {
 
