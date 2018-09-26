@@ -1,5 +1,5 @@
 # Tree Preparation Notes
-##Introduction
+## Introduction
 	1. A tree is a frequently-used data structure to simulate a hierarchical tree structure.
 	2. From graph view, a tree can also be defined as a directed acyclic graph which has N nodes and N-1 edges.
 	
