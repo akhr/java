@@ -63,22 +63,22 @@ while(currNode != null && !stack.isEmpty)
 	1. Create an empty stack
 	2. Set curr = root
 	3. If (curr != null)
-		a. If curr has right - stack.push(right)
-		b. then stack.push(curr)
-		c. **_We push right and then curr coz_** 
+		1. If curr has right - stack.push(right)
+		2. then stack.push(curr)
+		3. **_We push right and then curr coz_** 
 			- while poping we can check if the poped.right == stack.peek()
 			- Instead if right is pushed before root (actual required postOrder) 
 			- then we will pop right first
 			- From right node we cannot say whose right is this guy
 			- We need the parent to say 
 	4. If(curr == null)
-		a. curr = pop()
-		b. Check if curr.right == stack.peek() --> YES
+		1. curr = pop()
+		2. Check if curr.right == stack.peek() --> YES
 			- Then store curr.right in temp
 			- stack.push(curr)
 			- set curr = temp
 			- Goto 3
-		c. Check if curr.right == stack.peek() --> NO  || stack.isEmpty() //Means last node
+		3. Check if curr.right == stack.peek() --> NO  || stack.isEmpty() //Means last node
 			- Means its left is visited and 
 			- Its right is also visited and not in stack
 			- Its time to visit this node.
