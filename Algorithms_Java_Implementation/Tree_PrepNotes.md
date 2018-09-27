@@ -59,7 +59,7 @@ while(currNode != null && !stack.isEmpty)
 ###	3.PostOrder:
 - Left --> Right --> Root
 - 1 Stack and 2 Stacks solution are available
-#### 1 Stack
+- 1 Stack
 	1. Create an empty stack
 	2. Set curr = root
 	3. If (curr != null)
@@ -82,7 +82,7 @@ while(currNode != null && !stack.isEmpty)
 			- Means its left is visited and 
 			- Its right is also visited and not in stack
 			- Its time to visit this node.
-#### 2 Stacks
+- 2 Stacks
 	1. s1 will read the tree and add items to s2 in postOrder 
 	2. Create two empty stack
 	3. Push root into s1
