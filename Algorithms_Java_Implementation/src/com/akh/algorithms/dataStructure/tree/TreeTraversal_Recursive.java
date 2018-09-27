@@ -8,7 +8,7 @@ import com.akh.algorithms.dataStructure.tree.bst.BinaryTreeNode;
  *  Created on: Oct 22, 2017
  */
 
-public class TreeTraversal {
+public class TreeTraversal_Recursive {
 	
 	public static void preOrder(BinaryTreeNode<Integer> currNode){
 		//root,left,right
