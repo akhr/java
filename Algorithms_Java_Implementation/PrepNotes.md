@@ -52,24 +52,24 @@
 - minVar = Math.min(result1, result2)
 - Initialization
 	- To find min --> minVar = Integer.MAX_VALUE
-    - To find max --> maxVar = Integer.MIN_VALUE
-    	- Eg: LongestIncreasingSequence
-        - MaxProfitFromAStock
-        - CheckIfArrayIsIncreasingSquence
-        - MinimumStepsToOne
-        - DeleteMinCharsToMakeStringPalindrome
+	- To find max --> maxVar = Integer.MIN_VALUE
+	- Eg: LongestIncreasingSequence
+	- MaxProfitFromAStock
+	- CheckIfArrayIsIncreasingSquence
+	- MinimumStepsToOne
+	- DeleteMinCharsToMakeStringPalindrome
 
 
 ## Math: Number Problems
 - To get digits from given num - 109283 --> [1,0,9,2,8,3]
-          ```
-          while(num > 0){
-                      int quotient = num / 10;
-                      int reminder = num % 10;
-                      digitsArr[reminder] += 1;
-                      num = quotient;
-           }
-           ```
+```
+while(num > 0){
+      int quotient = num / 10;
+      int reminder = num % 10;
+      digitsArr[reminder] += 1;
+      num = quotient;
+}
+```
 - Digits problem... There are only 0-9 digits. So use an int[10] array
 
 
@@ -83,19 +83,19 @@
 - A + B + C = 0
 - a^3 + b^3 + c^3 = d^3
 - Method
-a. For a+b=c 
- 	1. Sort array
- 	2. Left pointer (a) and Right Pointer (b)
- 	3. Check sum < || = || > c
- 	4. Move a and b inwards based on step 3
-b. For a+b+c=d
- 	1. Sort array
- 	2. Choose a (for I=0 —> Len-1)
- 	3. Left pointer (b) and Right Pointer (c)
- 	4. Check sum < || = || > d
- 	5. Move b and c inwards based on step 3
-c. Same for a+b+c=0 
-d. Same for a^3 + b^3 + c^3 = d^3 
+	- For a+b=c 
+		1. Sort array
+		2. Left pointer (a) and Right Pointer (b)
+		3. Check sum < || = || > c
+		4. Move a and b inwards based on step 3
+	- For a+b+c=d
+		1. Sort array
+		2. Choose a (for I=0 —> Len-1)
+		3. Left pointer (b) and Right Pointer (c)
+		4. Check sum < || = || > d
+		5. Move b and c inwards based on step 3
+	- Same for a+b+c=0 
+	- Same for a^3 + b^3 + c^3 = d^3 
 
 
 ## Array: Maximum Sum SubArray
@@ -152,8 +152,6 @@ d. Same for a^3 + b^3 + c^3 = d^3
 - Use BFS to convert the BT to linked list
 - Use Inorder traversal for converting BT to Linked list
      
-
-
 ## Binary Tree: Height (max depth)
 - Height equal to one plus number of edges on the longest path from root to leaf
 ```  
@@ -169,63 +167,54 @@ d. Same for a^3 + b^3 + c^3 = d^3
 	  else
 	     int h = right +1
 	     return h;
-```	     
+ ```	     
 
 
 ## Binary Tree: Path sum = k
-   
 - define a variable sum and initialize to zero
 - define a stack with either of type integer or type node
- ``` 
-   function traverse(Node root)
-     {
-	 if root equals null 
-	    return;
+``` 
+	function traverse(Node root){
+		 if root equals null 
+			return;
 
-	 sum = sum + root.data;
-	 stack.push(root)
+		 sum = sum + root.data;
+		 stack.push(root)
 
-	 if( sum == k )
-	    print stack
+		 if( sum == k )
+			print stack
 
-	 traverse(root.left);
+		 traverse(root.left);
 
-	 traverse(root.right)
+		 traverse(root.right)
 
 
-	 sum = sum - root.data;
-	 stack.pop()
-     }
+		 sum = sum - root.data;
+		 stack.pop()
+	}
 ```         
-
-
+	
 ## Binary Tree: Traverse Skeleton (Not BST)
 ```	
-      public boolean search(TreeNode root, int search) {
-        if(root == null) return false;
-        if(root.val == search) return true;
-        return search(root.left, search) || search(root.right, search)
-      }
+	public boolean search(TreeNode root, int search) {
+		if(root == null) return false;
+		if(root.val == search) return true;
+		return search(root.left, search) || search(root.right, search)
+	}
 
-      Check NULL
-      If NOT NULL check the condition (search, lowest common ancestor, sumPath etc)
-      If not satisfied then 
-            leftResult = Recurse - Go left
-            rightResult = Recurse - Go right
-      Return leftResult || rightResult
+	Check NULL
+	If NOT NULL check the condition (search, lowest common ancestor, sumPath etc)
+	If not satisfied then 
+		leftResult = Recurse - Go left
+		rightResult = Recurse - Go right
+	Return leftResult || rightResult
 ```
-
-
-
 ## Array: Prefix Sum Array
 ```
-for( i  1 → len-1)
-	arr[i] =  arr[ i ] + arr[ i-1 ];
-Arr[i] carries the sum of all the items before i i.e., i-1 + itself
+	for( i  1 → len-1)
+		arr[i] =  arr[ i ] + arr[ i-1 ];
+	Arr[i] carries the sum of all the items before i i.e., i-1 + itself
 ```      
-
-
- 
 ## Array: Sliding Window
 ``` 
       sum = 0;
@@ -243,7 +232,7 @@ Arr[i] carries the sum of all the items before i i.e., i-1 + itself
            sum -= arr[startIndex++];
          }
 
-      }
+     }
 ```      
 
 
@@ -314,10 +303,10 @@ public String minWindow(String s, String t) {
 
 ## Array: Best way to get MID
 ```
-int getMid(int s, int e) 
-{
-  return s + ((e - s) / 2);
-}
+	int getMid(int s, int e) 
+	{
+	  return s + ((e - s) / 2);
+	}
 ```
 
 
