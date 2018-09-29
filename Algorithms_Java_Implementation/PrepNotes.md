@@ -27,7 +27,7 @@
 - Algorithms book site by Robert sedgewick has awesome java code
 - Download code from this site
 - Solve prob in leet code then look at discuss section to see top voted prob solution to learn 
---------------------------------------------------------------------------------------------
+
 
 ## Techniques to Learn
 - Sliding Window 
@@ -36,14 +36,14 @@
 - BFS - Visiting nodes of a tree level-wise
 - If sorted array - Have two pointers left and right and move inwards
 
---------------------------------------------------------------------------------------------
+
 
 ## Difference between SubString and SubSequence
 - Input: "pwwkew"
 - "pwke" is a subsequence and not a substring.
 - "pwwke" is a subString (NO SKIPPING)
 
---------------------------------------------------------------------------------------------
+
 
 ## Array: Find Min or Max of something.
 - Maintain a variable minVar or maxVar
@@ -58,7 +58,7 @@
         - CheckIfArrayIsIncreasingSquence
         - MinimumStepsToOne
         - DeleteMinCharsToMakeStringPalindrome
---------------------------------------------------------------------------------------------
+
 
 ## Math: Number Problems
 - To get digits from given num - 109283 --> [1,0,9,2,8,3]
@@ -71,11 +71,11 @@
            }
            ```
 - Digits problem... There are only 0-9 digits. So use an int[10] array
---------------------------------------------------------------------------------------------
+
 
 ## Tree
 - Check ./Tree_PrepNotes.md
---------------------------------------------------------------------------------------------
+
 
 ## Array: Check if sum adds to k
 - A + B = C
@@ -83,20 +83,20 @@
 - A + B + C = 0
 - a^3 + b^3 + c^3 = d^3
 - Method
-	a. For a+b=c 
-     	1. Sort array
-     	2. Left pointer (a) and Right Pointer (b)
-     	3. Check sum < || = || > c
-     	4. Move a and b inwards based on step 3
-	b. For a+b+c=d
-     	1. Sort array
-     	2. Choose a (for I=0 —> Len-1)
-     	3. Left pointer (b) and Right Pointer (c)
-     	4. Check sum < || = || > d
-     	5. Move b and c inwards based on step 3
-	c. Same for a+b+c=0 
-	d. Same for a^3 + b^3 + c^3 = d^3 
---------------------------------------------------------------------------------------------
+a. For a+b=c 
+ 	1. Sort array
+ 	2. Left pointer (a) and Right Pointer (b)
+ 	3. Check sum < || = || > c
+ 	4. Move a and b inwards based on step 3
+b. For a+b+c=d
+ 	1. Sort array
+ 	2. Choose a (for I=0 —> Len-1)
+ 	3. Left pointer (b) and Right Pointer (c)
+ 	4. Check sum < || = || > d
+ 	5. Move b and c inwards based on step 3
+c. Same for a+b+c=0 
+d. Same for a^3 + b^3 + c^3 = d^3 
+
 
 ## Array: Maximum Sum SubArray
 - Kadane’s algorithm
@@ -105,7 +105,7 @@
 	3. If tempSum > maxSum update maxSum
 	4. If tempSum < 0 then it means we encountered -ve item… so lets restart tempSum and try to find new Subarray… while until that point maxSum is stored
 	5. Repeat from steps 3
---------------------------------------------------------------------------------------------
+
 
 ## Array: Longest Increasing SubSequence
 - Prob 1 : 
@@ -122,7 +122,7 @@
 		3. If A[i] is largest among all end candidates of active lists, we will clone the largest active list, and extend it by A[i].
 		4. If A[i] is in between, we will find a list with largest end element that is smaller than A[i]. Clone and extend this list by A[i]. We will discard all other lists of same length as that of this modified list.
 	- https://stackoverflow.com/questions/6129682/longest-increasing-subsequenceonlogn
---------------------------------------------------------------------------------------------
+
 
 ## Array: Matrix (m*n)
 - Spiral
@@ -146,13 +146,13 @@
 		- Shrink right by one column… right - - ;
 		- Dir = RTL
     5. And so on…
---------------------------------------------------------------------------------------------
+
 
 ## Binary Tree: To Doubly link list
 - Use BFS to convert the BT to linked list
 - Use Inorder traversal for converting BT to Linked list
      
---------------------------------------------------------------------------------------------
+
 
 ## Binary Tree: Height (max depth)
 - Height equal to one plus number of edges on the longest path from root to leaf
@@ -170,7 +170,7 @@
 	     int h = right +1
 	     return h;
 ```	     
---------------------------------------------------------------------------------------------
+
 
 ## Binary Tree: Path sum = k
    
@@ -197,7 +197,7 @@
 	 stack.pop()
      }
 ```         
---------------------------------------------------------------------------------------------
+
 
 ## Binary Tree: Traverse Skeleton (Not BST)
 ```	
@@ -214,7 +214,7 @@
             rightResult = Recurse - Go right
       Return leftResult || rightResult
 ```
---------------------------------------------------------------------------------------------
+
 
 
 ## Array: Prefix Sum Array
@@ -223,10 +223,10 @@ for( i  1 → len-1)
 	arr[i] =  arr[ i ] + arr[ i-1 ];
 Arr[i] carries the sum of all the items before i i.e., i-1 + itself
 ```      
---------------------------------------------------------------------------------------------
+
 
  
-Array: Sliding Window
+## Array: Sliding Window
 ``` 
       sum = 0;
       startIndex = 0;
@@ -245,7 +245,7 @@ Array: Sliding Window
 
       }
 ```      
---------------------------------------------------------------------------------------------
+
 
 ## String: Sliding Window
 1. Check out /Algorithms_Java_Implementation/src/com/akh/algorithms/stringAlgorithms/slidingWindow/00_IMP_README.txt 
@@ -310,7 +310,7 @@ public String minWindow(String s, String t) {
 	return minLen == Integer.MAX_VALUE ? "" : s.substring(minLenIndx, minLenIndx+minLen);
 }
 ```  
---------------------------------------------------------------------------------------------
+
 
 ## Array: Best way to get MID
 ```
@@ -319,7 +319,7 @@ int getMid(int s, int e)
   return s + ((e - s) / 2);
 }
 ```
---------------------------------------------------------------------------------------------
+
 
 
 
