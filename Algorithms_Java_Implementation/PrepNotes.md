@@ -1,107 +1,101 @@
-                                    Preparation Nodes
+# Preparation Nodes
 
-  Topics to Prepare
-      Algorithms / Sanjoy Dasgupta, Christos Papadimitriou, Umesh Vazirani.
-      Learn simple topics for leet code:
-      Binary search
-      hashing, 
-      bfs, 
-      dfs, 
-      union find → very interesting - Quick Intro Video - https://www.youtube.com/watch?v=YB3_c11GPEo 
-      tree traversal: inorder, pre and post order, 
-      graph: shortest path
-      Topological sort, 
-      trie,
-      Linked list, 
-      tree map in java
-      Recursion, 
-      dynamic programming 
-      Backtracking
-      Divide and conquer, 
-      merge sort
-      Priority queue, 
-      stack, 
-      queue
-      Most probs comes under this topics 
-      Master this u can crack any company
-      Algorithms book site by Robert sedgewick has awesome java code
-      Download code from this site
-      Solve prob in leet code then look at discuss section to see top voted prob solution to learn 
+## Topics to Prepare
+- Algorithms / Sanjoy Dasgupta, Christos Papadimitriou, Umesh Vazirani.
+- Learn simple topics for leet code:
+- Binary search
+- hashing, 
+- bfs, 
+- dfs, 
+- union find → very interesting - Quick Intro Video - https://www.youtube.com/watch?v=YB3_c11GPEo 
+- tree traversal: inorder, pre and post order, 
+- graph: shortest path
+- Topological sort, 
+- trie,
+- Linked list, 
+- tree map in java
+- Recursion, 
+- dynamic programming 
+- Backtracking
+- Divide and conquer, 
+- merge sort
+- Priority queue, 
+- stack, 
+- queue
+- Most probs comes under this topics 
+- Master this u can crack any company
+- Algorithms book site by Robert sedgewick has awesome java code
+- Download code from this site
+- Solve prob in leet code then look at discuss section to see top voted prob solution to learn 
 --------------------------------------------------------------------------------------------
 
-
-  Techniques to Learn
-      Sliding Window 
-      Expand and Shrink Window
-      Slide the window
-      BFS - Visiting nodes of a tree level-wise
-      If sorted array - Have two pointers left and right and move inwards
-
-
---------------------------------------------------------------------------------------------
-
-Difference between SubString and SubSequence
-		Input: "pwwkew"
-		"pwke" is a subsequence and not a substring.
-		"pwwke" is a subString (NO SKIPPING)
+## Techniques to Learn
+- Sliding Window 
+- Expand and Shrink Window
+- Slide the window
+- BFS - Visiting nodes of a tree level-wise
+- If sorted array - Have two pointers left and right and move inwards
 
 --------------------------------------------------------------------------------------------
 
+## Difference between SubString and SubSequence
+- Input: "pwwkew"
+- "pwke" is a subsequence and not a substring.
+- "pwwke" is a subString (NO SKIPPING)
 
-Array: Find Min or Max of something.
-        Maintain a variable minVar or maxVar
-        Definitely need to use Math.min or max.
-        Need to compare two results. one with considering a condition and one without considering the condition
-        minVar = Math.min(result1, result2)
-        Initialization
-            To find min --> minVar = Integer.MAX_VALUE
-            To find max --> maxVar = Integer.MIN_VALUE
-                Eg: LongestIncreasingSequence
-                MaxProfitFromAStock
-                CheckIfArrayIsIncreasingSquence
-                MinimumStepsToOne
-                DeleteMinCharsToMakeStringPalindrome
 --------------------------------------------------------------------------------------------
 
-Math: Number Problems
-    To get digits from given num - 109283 --> [1,0,9,2,8,3]
+## Array: Find Min or Max of something.
+- Maintain a variable minVar or maxVar
+- Definitely need to use Math.min or max.
+- Need to compare two results. one with considering a condition and one without considering the condition
+- minVar = Math.min(result1, result2)
+- Initialization
+	- To find min --> minVar = Integer.MAX_VALUE
+    - To find max --> maxVar = Integer.MIN_VALUE
+    	- Eg: LongestIncreasingSequence
+        - MaxProfitFromAStock
+        - CheckIfArrayIsIncreasingSquence
+        - MinimumStepsToOne
+        - DeleteMinCharsToMakeStringPalindrome
+--------------------------------------------------------------------------------------------
+
+## Math: Number Problems
+- To get digits from given num - 109283 --> [1,0,9,2,8,3]
+          ```
           while(num > 0){
                       int quotient = num / 10;
                       int reminder = num % 10;
                       digitsArr[reminder] += 1;
                       num = quotient;
            }
-    Digits problem... There are only 0-9 digits. So use an int[10] array
+           ```
+- Digits problem... There are only 0-9 digits. So use an int[10] array
 --------------------------------------------------------------------------------------------
 
-Tree
-      Traversal
-            Preorder -> parent-left-right
-            Inorder -> left-parent-righT
-            Postorder -> left-right-parent
-      Can be done using recursion or iteratively
-      For iteration refer the whiteboard photos
+## Tree
+- Check ./Tree_PrepNotes.md
 --------------------------------------------------------------------------------------------
 
-Array: Check if sum adds to k
-      A + B = C
-      A + B + C = D
-      A + B + C = 0
-      a^3 + b^3 + c^3 = d^3
-      Method
-         For a+b=c 
-              Sort array
-              Left pointer (a) and Right Pointer (b)
-              Check sum < || = || > c
-              Move a and b inwards based on step 3
-         For a+b+c=d
-              Sort array
-              Choose a (for I=0 —> Len-1)
-              Left pointer (b) and Right Pointer (c)
-              Check sum < || = || > d
-              Move b and c inwards based on step 3
-         Same for a+b+c=0 
-         Same for a^3 + b^3 + c^3 = d^3 
+## Array: Check if sum adds to k
+- A + B = C
+- A + B + C = D
+- A + B + C = 0
+- a^3 + b^3 + c^3 = d^3
+- Method
+	a. For a+b=c 
+     	1. Sort array
+     	2. Left pointer (a) and Right Pointer (b)
+     	3. Check sum < || = || > c
+     	4. Move a and b inwards based on step 3
+	b. For a+b+c=d
+     	1. Sort array
+     	2. Choose a (for I=0 —> Len-1)
+     	3. Left pointer (b) and Right Pointer (c)
+     	4. Check sum < || = || > d
+     	5. Move b and c inwards based on step 3
+	c. Same for a+b+c=0 
+	d. Same for a^3 + b^3 + c^3 = d^3 
 --------------------------------------------------------------------------------------------
 
 Array: Maximum Sum SubArray
