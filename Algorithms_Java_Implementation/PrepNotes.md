@@ -52,7 +52,7 @@
 - minVar = Math.min(result1, result2)
 - Initialization
 	- To find min --> minVar = Integer.MAX_VALUE
-    - To find max --> maxVar = Integer.MIN_VALUE
+    	- To find max --> maxVar = Integer.MIN_VALUE
     	- Eg: LongestIncreasingSequence
         - MaxProfitFromAStock
         - CheckIfArrayIsIncreasingSquence
@@ -62,14 +62,14 @@
 
 ## Math: Number Problems
 - To get digits from given num - 109283 --> [1,0,9,2,8,3]
-          ```
-          while(num > 0){
-                      int quotient = num / 10;
-                      int reminder = num % 10;
-                      digitsArr[reminder] += 1;
-                      num = quotient;
-           }
-           ```
+```
+while(num > 0){
+      int quotient = num / 10;
+      int reminder = num % 10;
+      digitsArr[reminder] += 1;
+      num = quotient;
+}
+```
 - Digits problem... There are only 0-9 digits. So use an int[10] array
 --------------------------------------------------------------------------------------------
 
@@ -156,7 +156,7 @@
 
 ## Binary Tree: Height (max depth)
 - Height equal to one plus number of edges on the longest path from root to leaf
-```  
+	```
 	Recursive call
 	function ( p)
 	   if( p == null )
@@ -169,7 +169,7 @@
 	  else
 	     int h = right +1
 	     return h;
-```	     
+	```	     
 --------------------------------------------------------------------------------------------
 
 ## Binary Tree: Path sum = k
@@ -226,7 +226,7 @@ Arr[i] carries the sum of all the items before i i.e., i-1 + itself
 --------------------------------------------------------------------------------------------
 
  
-Array: Sliding Window
+## Array: Sliding Window
 ``` 
       sum = 0;
       startIndex = 0;
