@@ -98,52 +98,54 @@
 	d. Same for a^3 + b^3 + c^3 = d^3 
 --------------------------------------------------------------------------------------------
 
-Array: Maximum Sum SubArray
-      Kadane’s algorithm
-      Have var maxSum and tempSum
-      Loop thro array add new item to tempSum
-      If tempSum > maxSum update maxSum
-      If tempSum < 0 then it means we encountered -ve item… so lets restart tempSum and try to find new Subarray… while until that point maxSum is stored
-      Repeat from steps 3
+## Array: Maximum Sum SubArray
+- Kadane’s algorithm
+	1. Have var maxSum and tempSum
+	2. Loop thro array add new item to tempSum
+	3. If tempSum > maxSum update maxSum
+	4. If tempSum < 0 then it means we encountered -ve item… so lets restart tempSum and try to find new Subarray… while until that point maxSum is stored
+	5. Repeat from steps 3
 --------------------------------------------------------------------------------------------
 
-Array: Longest Increasing SubSequence
-      Prob 1 : Return only count of items that will from a longest increasing subsequence (LIS)
-            Form new LIS array
-            Use BinarySearch to find the position where to insert/replace-old-with new item read from input arr.
-            Always retain the lower item and replace the bigger item
-            Because of chances of find a longer sequence is higher when smaller item is retained
-      Prob 2 : Return the LIS subarray itself
-            Create List<List<Integer>>
-            Take a new item from input arr.
-                  If A[i] is smallest among all end candidates of active lists, we will start new active list of length 1.
-                  If A[i] is largest among all end candidates of active lists, we will clone the largest active list, and extend it by A[i].
-                  If A[i] is in between, we will find a list with largest end element that is smaller than A[i]. Clone and extend this list by A[i]. We will discard all other lists of same length as that of this modified list.
-             https://stackoverflow.com/questions/6129682/longest-increasing-subsequenceonlogn
+## Array: Longest Increasing SubSequence
+- Prob 1 : 
+	- Return only count of items that will from a longest increasing subsequence (LIS)
+	- Form new LIS array
+	- Use BinarySearch to find the position where to insert/replace-old-with new item read from input arr.
+	- Always retain the lower item and replace the bigger item
+	- Because of chances of find a longer sequence is higher when smaller item is retained
+- Prob 2 : 
+	- Return the LIS subarray itself
+	- Create List<List<Integer>>
+		1. Take a new item from input arr.
+		2. If A[i] is smallest among all end candidates of active lists, we will start new active list of length 1.
+		3. If A[i] is largest among all end candidates of active lists, we will clone the largest active list, and extend it by A[i].
+		4. If A[i] is in between, we will find a list with largest end element that is smaller than A[i]. Clone and extend this list by A[i]. We will discard all other lists of same length as that of this modified list.
+	- https://stackoverflow.com/questions/6129682/longest-increasing-subsequenceonlogn
 --------------------------------------------------------------------------------------------
 
-Array: Matrix (m*n)
-      Spiral
-          Define
-                top=0  
-                left=0
-                bottom=n-1
-                right=n-1
-          Define 4 walk directions
-                LTR
-                TTB
-                RTL
-                BTT
-          Walk through a LTR
-                Start with dir = LTR
-                Keep i constant and iterate j (left to right)
-                Shrink top by one column… top ++ ;
-                Dir = TTB
-          Walk through a TTB
-                Keep j constant and iterate I (top to bottom)
-                Shrink right by one column… right - - ;
-                Dir = RTL
-          And so on…
+## Array: Matrix (m*n)
+  Spiral
+      Define
+            top=0  
+            left=0
+            bottom=n-1
+            right=n-1
+      Define 4 walk directions
+            LTR
+            TTB
+            RTL
+            BTT
+      Walk through a LTR
+            Start with dir = LTR
+            Keep i constant and iterate j (left to right)
+            Shrink top by one column… top ++ ;
+            Dir = TTB
+      Walk through a TTB
+            Keep j constant and iterate I (top to bottom)
+            Shrink right by one column… right - - ;
+            Dir = RTL
+      And so on…
 --------------------------------------------------------------------------------------------
 
 Binary Tree: To Doubly link list
