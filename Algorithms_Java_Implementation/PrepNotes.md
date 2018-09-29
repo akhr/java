@@ -125,81 +125,82 @@
 --------------------------------------------------------------------------------------------
 
 ## Array: Matrix (m*n)
-  Spiral
-      Define
-            top=0  
-            left=0
-            bottom=n-1
-            right=n-1
-      Define 4 walk directions
-            LTR
-            TTB
-            RTL
-            BTT
-      Walk through a LTR
-            Start with dir = LTR
-            Keep i constant and iterate j (left to right)
-            Shrink top by one column… top ++ ;
-            Dir = TTB
-      Walk through a TTB
-            Keep j constant and iterate I (top to bottom)
-            Shrink right by one column… right - - ;
-            Dir = RTL
-      And so on…
+- Spiral
+	1. Define
+		- top=0  
+		- left=0
+		- bottom=n-1
+		- right=n-1
+	2. Define 4 walk directions
+		- LTR
+		- TTB
+		- RTL
+		- BTT
+	3. Walk through a LTR
+		- Start with dir = LTR
+		- Keep i constant and iterate j (left to right)
+		- Shrink top by one column… top ++ ;
+		- Dir = TTB
+	4. Walk through a TTB
+		- Keep j constant and iterate I (top to bottom)
+		- Shrink right by one column… right - - ;
+		- Dir = RTL
+    5. And so on…
 --------------------------------------------------------------------------------------------
 
-Binary Tree: To Doubly link list
-     Use Bfs to convert the BT to linked list
-     Use Inorder traversal for converting BT to Linked list
+## Binary Tree: To Doubly link list
+- Use BFS to convert the BT to linked list
+- Use Inorder traversal for converting BT to Linked list
      
 --------------------------------------------------------------------------------------------
 
-Binary Tree: Height (max depth)
-    Height equal to one plus number of edges on the longest path from root to leaf
-    
-        Recursive call
-        function ( p)
-           if( p == null )
-                return zero
-           int left = fucntion(p.left)
-            int right  = fucntion (p.right)
+## Binary Tree: Height (max depth)
+- Height equal to one plus number of edges on the longest path from root to leaf
+```  
+	Recursive call
+	function ( p)
+	   if( p == null )
+		return zero
+	   int left = fucntion(p.left)
+	    int right  = fucntion (p.right)
 
-          if( left > right)
-             int h = left +1
-          else
-             int h = right +1
-             return h;
+	  if( left > right)
+	     int h = left +1
+	  else
+	     int h = right +1
+	     return h;
+```	     
 --------------------------------------------------------------------------------------------
 
- Binary Tree: Path sum = k
+## Binary Tree: Path sum = k
    
-   define a variable sum and initialize to zero
-   define a stack with either of type integer or type node
-   
-  
-       function traverse(Node root)
-         {
-             if root equals null 
-                return;
+- define a variable sum and initialize to zero
+- define a stack with either of type integer or type node
+ ``` 
+   function traverse(Node root)
+     {
+	 if root equals null 
+	    return;
 
-             sum = sum + root.data;
-             stack.push(root)
+	 sum = sum + root.data;
+	 stack.push(root)
 
-             if( sum == k )
-                print stack
+	 if( sum == k )
+	    print stack
 
-             traverse(root.left);
+	 traverse(root.left);
 
-             traverse(root.right)
+	 traverse(root.right)
 
 
-             sum = sum - root.data;
-             stack.pop()
-         }
+	 sum = sum - root.data;
+	 stack.pop()
+     }
+```         
 --------------------------------------------------------------------------------------------
 
-Binary Tree: Traverse Skeleton (Not BST)
-	
+## Binary Tree: Traverse Skeleton (Not BST)
+```	
       public boolean search(TreeNode root, int search) {
         if(root == null) return false;
         if(root.val == search) return true;
@@ -212,20 +213,21 @@ Binary Tree: Traverse Skeleton (Not BST)
             leftResult = Recurse - Go left
             rightResult = Recurse - Go right
       Return leftResult || rightResult
+```
 --------------------------------------------------------------------------------------------
 
 
-Array: Prefix Sum Array
-
-      for( i  1 → len-1)
-        arr[i] =  arr[ i ] + arr[ i-1 ];
-      Arr[i] carries the sum of all the items before i i.e., i-1 + itself
-      
+## Array: Prefix Sum Array
+```
+for( i  1 → len-1)
+	arr[i] =  arr[ i ] + arr[ i-1 ];
+Arr[i] carries the sum of all the items before i i.e., i-1 + itself
+```      
 --------------------------------------------------------------------------------------------
 
  
 Array: Sliding Window
- 
+``` 
       sum = 0;
       startIndex = 0;
       while( i < arr.length)
@@ -242,81 +244,81 @@ Array: Sliding Window
          }
 
       }
+```      
 --------------------------------------------------------------------------------------------
 
-String: Sliding Window - 
-	1. Check out /Algorithms_Java_Implementation/src/com/akh/algorithms/stringAlgorithms/slidingWindow/00_IMP_README.txt 
-	2. Understand the template used below
+## String: Sliding Window
+1. Check out /Algorithms_Java_Implementation/src/com/akh/algorithms/stringAlgorithms/slidingWindow/00_IMP_README.txt 
+2. Understand the template used below
 
 
-LC76
+### LC76
+```
+public String minWindow(String s, String t) {
+	Map<Character, Integer> needToFind = new HashMap<>();
+	for(char c : t.toCharArray()) {
+	  //Load target chars into MAP
+	}
 
-    public String minWindow(String s, String t) {
+	// REQUIRED chars count
+	int reqCharsCount = 0;
+	int minLen = Integer.MAX_VALUE;
+	int minLenIndx = 0;
+	int left, right;
+	left = right = 0;
 
-        Map<Character, Integer> needToFind = new HashMap<>();
-
-        for(char c : t.toCharArray()) {
-          //Load target chars into MAP
-        }
-
-
-        // REQUIRED chars count
-        int reqCharsCount = 0;
-        int minLen = Integer.MAX_VALUE;
-        int minLenIndx = 0;
-        int left, right;
-        left = right = 0;
-
-
-        //Window EXPAND
-        while(right < s.length()) {
-            char expandChar = s.charAt(right);
-            if(needToFind.containsKey(expandChar)) {
-              if(needToFind.get(expandChar) > 0){ 
-                // One valid char found
-                reqCharsCount++;
-              }
-              //If more than required then MAP val will be negative. STARRED_STEP 1
-              needToFind.put(expandChar, needToFind.get(expandChar)-1); 
-        }
-        /** At end of this step MAP val shd be 
-         * 		-	'0' for required and found exact count 
-         * 		-	'-ve' for required and found extra count
-         */
+	//Window EXPAND
+	while(right < s.length()) {
+	    char expandChar = s.charAt(right);
+	    if(needToFind.containsKey(expandChar)) {
+	      if(needToFind.get(expandChar) > 0){ 
+		// One valid char found
+		reqCharsCount++;
+	      }
+	      //If more than required then MAP val will be negative. STARRED_STEP 1
+	      needToFind.put(expandChar, needToFind.get(expandChar)-1); 
+	}
+	/** At end of this step MAP val shd be 
+	 * 		-	'0' for required and found exact count 
+	 * 		-	'-ve' for required and found extra count
+	 */
 
 
-        //WINDOW SHRINK
-        while(left <= right && reqCharsCount == t.length()) {
-              //Calculate the min window length
-              if(minLen > right-left+1) {
-                minLen = Math.min(minLen, right-left+1);
-                minLenIndx = left;
-              }
+	//WINDOW SHRINK
+	while(left <= right && reqCharsCount == t.length()) {
+	      //Calculate the min window length
+	      if(minLen > right-left+1) {
+		minLen = Math.min(minLen, right-left+1);
+		minLenIndx = left;
+	      }
 
-              char shrinkChar = s.charAt(left);
-              if(needToFind.containsKey(shrinkChar)) {
-                if(needToFind.get(shrinkChar) == 0) {
-                  // One valid char lost
-                  reqCharsCount--;
-                }
-                // Reverse of STARRED_STEP 1
-                // If extra count then Map.value will incr from negative towards 0
-                needToFind.put(shrinkChar, needToFind.get(shrinkChar)+1);
-              }
-              left++;
-            }
-            //Do at the bottom. Or else will mess up minLen calculation
-            right++;
-        }
-        return minLen == Integer.MAX_VALUE ? "" : s.substring(minLenIndx, minLenIndx+minLen);
-  }
+	      char shrinkChar = s.charAt(left);
+	      if(needToFind.containsKey(shrinkChar)) {
+		if(needToFind.get(shrinkChar) == 0) {
+		  // One valid char lost
+		  reqCharsCount--;
+		}
+		// Reverse of STARRED_STEP 1
+		// If extra count then Map.value will incr from negative towards 0
+		needToFind.put(shrinkChar, needToFind.get(shrinkChar)+1);
+	      }
+	      left++;
+	    }
+	    //Do at the bottom. Or else will mess up minLen calculation
+	    right++;
+	}
+	return minLen == Integer.MAX_VALUE ? "" : s.substring(minLenIndx, minLenIndx+minLen);
+}
+```  
 --------------------------------------------------------------------------------------------
 
-Array: Best way to get MID
-      int getMid(int s, int e) 
-      {
-          return s + ((e - s) / 2);
-      }
+## Array: Best way to get MID
+```
+int getMid(int s, int e) 
+{
+  return s + ((e - s) / 2);
+}
+```
 --------------------------------------------------------------------------------------------
 
 
