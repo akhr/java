@@ -42,6 +42,10 @@ public class Graph {
     private int E; //edges
     private Bag<Integer>[] adj; //adjacency list
     
+    //Here name of vertex crossponds to the array index (BAG index)
+    //Sometimes BAG can contain Object instead of simple Integer.
+    //In that case how to find a vertex from BAG effitively?
+    
     public Graph(In in) {
     
         //CREATE Vertices
@@ -120,4 +124,9 @@ public class Bag<Item> implements Iterable<Item> {
 }
 ```
 
-asdfasd
+### Depth First Search (DFS)
+- Recursive
+- Mark visited nodes
+- Visit (recursively) all the vertices that are adjacent to it and that have not yet been marked.
+
+
