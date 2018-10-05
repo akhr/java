@@ -3,13 +3,13 @@ package com.akh.algorithms.dataStructure.tree;
 import static org.junit.Assert.assertEquals;
 
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 import org.junit.Test;
 
 import com.akh.algorithms.dataStructure.tree.bst.BinaryTreeNode;
 import com.akh.algorithms.dataStructure.tree.bst.ConstructBSTFromSortedArray;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.InterningXmlVisitor;
 
 /**
  *  @fileName: TreeSizeAndHeight.java
@@ -20,60 +20,82 @@ import com.sun.xml.internal.bind.v2.runtime.unmarshaller.InterningXmlVisitor;
 public class TreeSizeAndHeight {
 	
 	//===================================  Tree Depth or Height ============================
-	private static int maxDepth_DFS_Bottom_Up(BinaryTreeNode<Integer> root){
+	private static int maxDepth_DFS_PostOrder(BinaryTreeNode<Integer> root){
 		if(root == null)
 			return 0;
-		int leftSubTreeHt = maxDepth_DFS_Bottom_Up(root.getLeft());
-		int rightSubTreeHt = maxDepth_DFS_Bottom_Up(root.getRight());
+		int leftSubTreeHt = maxDepth_DFS_PostOrder(root.getLeft());
+		int rightSubTreeHt = maxDepth_DFS_PostOrder(root.getRight());
 		
 		int maxSubTreeHt = Math.max(leftSubTreeHt, rightSubTreeHt);
 		
 		return maxSubTreeHt + 1;
 	}
 	
-	private static int maxDepth_DFS_Top_Down(BinaryTreeNode<Integer> root) {
+	private static int maxDepth_DFS_PreOrder(BinaryTreeNode<Integer> root) {
 		int[] maxDepth = {Integer.MIN_VALUE};
-		maxDepth_DFS_Top_Down(root, 0, maxDepth);
+		maxDepth_DFS_PreOrder(root, 0, maxDepth);
 		return maxDepth[0];
 	}
 	
-	private static void maxDepth_DFS_Top_Down(BinaryTreeNode<Integer> root, int depth, int[] maxDepth){
+	private static void maxDepth_DFS_PreOrder(BinaryTreeNode<Integer> root, int depth, int[] maxDepth){
 		if(root == null) {
 			maxDepth[0] = Math.max(maxDepth[0], depth); 
 			return;
 		}
-		maxDepth_DFS_Top_Down(root.getLeft(), depth+1, maxDepth);
-		maxDepth_DFS_Top_Down(root.getRight(), depth+1, maxDepth);
+		maxDepth_DFS_PreOrder(root.getLeft(), depth+1, maxDepth);
+		maxDepth_DFS_PreOrder(root.getRight(), depth+1, maxDepth);
 	}
 	
-	/*private static int maxDepth_DFS_Iterative(BinaryTreeNode<Integer> root) {
-		return maxDepth_DFS_Iterative(root, 1);
-	}*/
-	
 	private static int maxDepth_DFS_Iterative(BinaryTreeNode<Integer> root) {
-		Stack<BinaryTreeNode<Integer>> stack = new Stack<>();
-		stack.push(root);
-		int maxDepth = Integer.MIN_VALUE;
-		int depth = 1;
+		if(root == null)
+			return 0;
 		
-		while(!stack.isEmpty()) {
-			maxDepth = Math.max(maxDepth, depth);
-			BinaryTreeNode<Integer> node = stack.pop();
+		Stack<BinaryTreeNode<Integer>> nodeStack = new Stack<>();
+		Stack<Integer> levelStack = new Stack<>();
+		
+		nodeStack.push(root);
+		levelStack.push(1);
+		
+		int maxDepth = Integer.MIN_VALUE;
+		
+		while(!nodeStack.isEmpty()) {
 			
-			if(node.getLeft() != null) stack.push(node.getLeft());
-			if(node.getRight() != null) stack.push(node.getRight());
-			if(node.getLeft() != null || node.getRight() != null) depth++;
+			BinaryTreeNode<Integer> poped = nodeStack.pop();
+			int depth = levelStack.pop();
+			maxDepth = Math.max(maxDepth, depth);
+			
+			if(poped.getRight() != null){
+				nodeStack.push(poped.getRight());
+				levelStack.push(depth+1);
+			}
+			
+			if(poped.getLeft() != null) {
+				nodeStack.push(poped.getLeft());
+				levelStack.push(depth+1);
+			}
 		}
  		return maxDepth;
 	}
-
-	private static int getTreeHeight(BinaryTreeNode<Integer> root){
-		int treeSize = getTreeSize(root);
-		if(treeSize <= 0)
+	
+	private static int maxDepth_BFS(BinaryTreeNode<Integer> root) {
+		if(root == null)
 			return 0;
-		if(treeSize == 1)
-			return 1;
-		int depth = (int)Math.ceil((Math.log(treeSize) / Math.log(2)));
+		Queue<BinaryTreeNode<Integer>> queue = new LinkedList<>();
+		queue.offer(root);
+		int neighborsCount = 0;
+		int depth = 0;
+		
+		while(!queue.isEmpty()){
+			neighborsCount = queue.size();
+			
+			while(neighborsCount > 0){
+				BinaryTreeNode<Integer> curr = queue.poll();
+				if(curr.getLeft() != null) queue.offer(curr.getLeft());
+				if(curr.getRight() != null) queue.offer(curr.getRight());
+				neighborsCount--;
+			}
+			depth++;
+		}
 		return depth;
 	}
 	
@@ -91,29 +113,40 @@ public class TreeSizeAndHeight {
 	public void checkDepth_1(){
 		int[] arr = new int[]{1, 5, 7, 12, 14, 27, 33, 64, 78, 90};
 		BinaryTreeNode<Integer> root = ConstructBSTFromSortedArray.constructBST(arr, 0, arr.length-1);
-		
-//		assertEquals("Log Approach", 4, getTreeHeight(root));
-//		assertEquals("Bottom Up Approach", 4, maxDepth_DFS_Bottom_Up(root));
-//		assertEquals("Top Down Approach", 4, maxDepth_DFS_Top_Down(root));
-		assertEquals("Iterative Approach", 4, maxDepth_DFS_Iterative(root));
+		assertEquals("DFS Post Order", 4, maxDepth_DFS_PostOrder(root));
+		assertEquals("DFS Pre Order", 4, maxDepth_DFS_PreOrder(root));
+		assertEquals("DFS Iterative", 4, maxDepth_DFS_Iterative(root));
+		assertEquals("BFS", 4, maxDepth_BFS(root));
 	}
 	
 	@Test 
 	public void checkDepth_2(){
 		int[] arr = new int[]{1};
 		BinaryTreeNode<Integer> root = ConstructBSTFromSortedArray.constructBST(arr, 0, arr.length-1);
-		assertEquals("Log Approach", 1, getTreeHeight(root));
-		assertEquals("Bottom Up Approach", 1, maxDepth_DFS_Bottom_Up(root));
-		assertEquals("Top Down Approach", 1, maxDepth_DFS_Top_Down(root));
+		assertEquals("DFS Post Order", 1, maxDepth_DFS_PostOrder(root));
+		assertEquals("DFS Pre Order", 1, maxDepth_DFS_PreOrder(root));
+		assertEquals("DFS Iterative", 1, maxDepth_DFS_Iterative(root));
+		assertEquals("BFS", 1, maxDepth_BFS(root));
 	}
 	
 	@Test 
 	public void checkDepth_3(){
 		int[] arr = new int[]{};
 		BinaryTreeNode<Integer> root = ConstructBSTFromSortedArray.constructBST(arr, 0, arr.length-1);
-		assertEquals("Log Approach", 0, getTreeHeight(root));
-		assertEquals("Bottom Up Approach", 0, maxDepth_DFS_Bottom_Up(root));
-		assertEquals("Top Down Approach", 0, maxDepth_DFS_Top_Down(root));
+		assertEquals("DFS Post Order", 0, maxDepth_DFS_PostOrder(root));
+		assertEquals("DFS Pre Order", 0, maxDepth_DFS_PreOrder(root));
+		assertEquals("DFS Iterative", 0, maxDepth_DFS_Iterative(root));
+		assertEquals("BFS", 0, maxDepth_BFS(root));
+	}
+	
+	@Test 
+	public void checkDepth_4(){
+		int[] arr = new int[]{1,2,3,4};
+		BinaryTreeNode<Integer> root = ConstructBSTFromSortedArray.constructBST(arr, 0, arr.length-1);
+		assertEquals("DFS Post Order", 3, maxDepth_DFS_PostOrder(root));
+		assertEquals("DFS Pre Order", 3, maxDepth_DFS_PreOrder(root));
+		assertEquals("DFS Iterative", 3, maxDepth_DFS_Iterative(root));
+		assertEquals("BFS", 3, maxDepth_BFS(root));
 	}
 
 	
