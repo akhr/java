@@ -2,8 +2,9 @@
 ## Introduction
 1. A tree is a frequently-used data structure to simulate a hierarchical tree structure.
 2. From graph view, a tree can also be defined as a directed acyclic graph which has N nodes and N-1 edges.
+3. Fact: _n elements has 2^n subsets_
 	
-## Traversal
+## Traversal (Iterative Implementations)
 ### 1.PreOrder
 - Root --> Left --> Right
 - Iterative: 
@@ -94,7 +95,7 @@ while(currNode != null && !stack.isEmpty)
 		- visit(s2.pop())
 
 ## Depth First Search (DFS)
-- All traversal are a type of DFS
+- All traversals are a type of DFS
 ### Pre-Order DFS
 - Pre (Cashew) 
 	- **_Calculate result at each node and pass this result DOWN to children_**
@@ -116,12 +117,12 @@ while(currNode != null && !stack.isEmpty)
 	
 - Eg: Find Max Depth of a Tree
 ```
-public int findMaxDepth_Top_Down(TreeNode root) {
+public int findMaxDepth_DFS_Pre(TreeNode root) {
 	int[] maxDepth = new int[1];
 	findMaxDepth_Top_Down(root, 1, maxDepth);
 	return maxDepth[0];
 }
-private void findMaxDepth_Top_Down(TreeNode root, int depth, int[] maxDepth) {
+private void findMaxDepth_DFS_Pre(TreeNode root, int depth, int[] maxDepth) {
 	//update the answer if LEAF
 	if(root.left == null && root.right == null) {
 		maxDepth[0] = new Integer(Math.max(maxDepth[0], depth));
@@ -137,6 +138,7 @@ private void findMaxDepth_Top_Down(TreeNode root, int depth, int[] maxDepth) {
 ```
 ### Post-Order DFS
 - **_Calculate result at each node and pass this result UP back to parent**
+- **_Post can be used only if TREE already exist. Cannot be used to build the TREE like in LC78/90_**
 - No need to initialize _result_ var before calling recursive function
 - function returns RESULT
 - Goes all the way from root down to leaf
@@ -156,7 +158,7 @@ private void findMaxDepth_Top_Down(TreeNode root, int depth, int[] maxDepth) {
 ```
 	
 ```
-public int findMaxDepth_Bottom_Up(TreeNode root) {
+public int findMaxDepth_DFS_Post(TreeNode root) {
 	//return specific val for null node
 	if(root == null)
 		return 0;
@@ -169,7 +171,17 @@ public int findMaxDepth_Bottom_Up(TreeNode root) {
 	return 	Math.max(leftDepth, rightDepth) + 1;
 }	
 ```
-###
+## BFS
+
+## BackTracking
+- Can be done using the DFS 
+	- Pre-Order (preferred esp., when building the TREE)
+		- Iterative
+		- Recursive
+	- Post-Order & In-Order
+		- If TREE already exist
+- Can also be done using BFS (using Queue)
+
 					
 					
 							
