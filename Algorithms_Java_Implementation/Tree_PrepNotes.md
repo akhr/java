@@ -181,7 +181,7 @@ public int findMaxDepth_DFS_Post(TreeNode root) {
 	- Post-Order & In-Order
 		- If TREE already exist
 - Can also be done using BFS (using Queue)
-
+![Fig 1](https://github.com/akhr/java/blob/master/Algorithms_Java_Implementation/src/com/akh/algorithms/recursion/Recursion_Types.jpeg)
 					
 					
 							
