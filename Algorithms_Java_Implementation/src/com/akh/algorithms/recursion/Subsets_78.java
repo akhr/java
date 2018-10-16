@@ -9,6 +9,8 @@ import java.util.Stack;
 
 import org.junit.Test;
 
+import javafx.geometry.Side;
+
 /**
  *  @fileName: Subsets_78.java
  *  @author: Akhash Ramamurthy
@@ -41,6 +43,9 @@ import org.junit.Test;
 public class Subsets_78 {
 
 	public List<List<Integer>> subsets_DFS_Recursive(int[] nums) {
+		if(nums == null || nums.length <= 0)
+			return new ArrayList<>();
+		
 		List<List<Integer>> result = new ArrayList<>();
 		List<Integer> input = new ArrayList<>();
 		// Start with empty input (input.size == 0) to recursion
@@ -74,19 +79,19 @@ public class Subsets_78 {
 		//While returning from this TREE LEVEL give oneResult as it was received. Remove nums[position] added to oneResult 
 		input.remove(input.size()-1);
 	}
-	
+
 	public List<List<Integer>> subsets_DFS_Iterative(int[] nums) {
 		if(nums == null || nums.length <= 0)
 			return new ArrayList<>();
-		
+
 		List<List<Integer>> res = new ArrayList<>();
 
 		Stack<Integer> levelStack = new Stack<>();
 		List<Integer> tempList = new ArrayList<>();
 		levelStack.push(0);
-		
+
 		int listCnt = 0;
-		
+
 		while(!levelStack.isEmpty()){
 			int pos = levelStack.pop();
 			if(pos == nums.length){
@@ -96,24 +101,44 @@ public class Subsets_78 {
 					tempList.remove(tempList.size()-1);
 				continue;
 			}
-			
+
 			levelStack.push(pos+1);
-			
+
 			tempList.add(nums[pos]);
 			levelStack.push(pos+1);
 		}
-		System.out.println("# of Lists created : "+listCnt);
+		System.out.println("DFS_Iterative # of Lists created : "+listCnt);
 		return res;
 	}
-	
-/*	public List<List<Integer>> subsets_BFS(int[] nums) {
+
+	public List<List<Integer>> subsets_BFS(int[] nums) {
 		if(nums == null || nums.length <= 0)
 			return new ArrayList<>();
-		
+
 		List<List<Integer>> res = new ArrayList<>();
-		Queue<Integer> levelQueue = new LinkedList<>();
+		Queue<List<Integer>> queue = new LinkedList<>(); 
+		queue.offer(new ArrayList<Integer>());
+		int listCnt = 1;
+
+		for(int i=0; i<nums.length; i++){
+			int levelSize = queue.size();
+			for(int j=0; j<levelSize; j++){
+				List<Integer> polled = queue.poll();
+				
+				List<Integer> leftChild = polled;
+				//Left child - Reuse List Obj
+				queue.offer(leftChild);
+				
+				List<Integer> rightChild = new ArrayList<>(polled);
+				listCnt++;
+				rightChild.add(nums[i]);
+				queue.offer(rightChild);
+			}	
+		}
+		System.out.println("BFS # of Lists created : "+listCnt);
+		res.addAll(queue);
+		return res;
 	}
-*/
 
 	@Test
 	public void subSet_1() {
@@ -121,11 +146,18 @@ public class Subsets_78 {
 		List<List<Integer>> actual = subsets_DFS_Recursive(nums);
 		System.out.println("Result : "+Arrays.toString(actual.toArray()));
 	}
-	
+
 	@Test
 	public void subSet_2() {
-		int[] nums = {1,2,3};
+		int[] nums = {100,200,300};
 		List<List<Integer>> actual = subsets_DFS_Iterative(nums);
+		System.out.println("Result : "+Arrays.toString(actual.toArray()));
+	}
+	
+	@Test
+	public void subSet_3() {
+		int[] nums = {1,2,3};
+		List<List<Integer>> actual = subsets_BFS(nums);
 		System.out.println("Result : "+Arrays.toString(actual.toArray()));
 	}
 }
