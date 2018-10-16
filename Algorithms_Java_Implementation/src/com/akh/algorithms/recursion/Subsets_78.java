@@ -43,6 +43,9 @@ import javafx.geometry.Side;
 public class Subsets_78 {
 
 	public List<List<Integer>> subsets_DFS_Recursive(int[] nums) {
+		if(nums == null || nums.length <= 0)
+			return new ArrayList<>();
+		
 		List<List<Integer>> result = new ArrayList<>();
 		List<Integer> input = new ArrayList<>();
 		// Start with empty input (input.size == 0) to recursion
@@ -146,7 +149,7 @@ public class Subsets_78 {
 
 	@Test
 	public void subSet_2() {
-		int[] nums = {1,2,3};
+		int[] nums = {100,200,300};
 		List<List<Integer>> actual = subsets_DFS_Iterative(nums);
 		System.out.println("Result : "+Arrays.toString(actual.toArray()));
 	}
