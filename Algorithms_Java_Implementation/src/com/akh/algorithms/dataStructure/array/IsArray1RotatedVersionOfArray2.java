@@ -6,13 +6,12 @@
 
 package com.akh.algorithms.dataStructure.array;
 
-import static org.junit.Assert.*;
-
-import java.util.Arrays;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.akh.algorithms.stringAlgorithms.IsPatternASubString;
+import com.akh.algorithms.stringAlgorithms.KnuthMorrisPratt_Pattern_Matching;
 
 /**
  *  @fileName: IsArray1RotatedVersionOfArray2.java
@@ -60,7 +59,7 @@ public class IsArray1RotatedVersionOfArray2 {
 		String p = sB.toString();
 		System.out.println("s = "+s);
 		System.out.println("b = "+p);
-		return IsPatternASubString.isSubString_KMP_Impl(s, p);
+		return KnuthMorrisPratt_Pattern_Matching.isSubString_KMP_Impl(s, p);
 	}
 
 
