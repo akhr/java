@@ -57,6 +57,11 @@ public class IntersectionOfTwoArrays_II {
 		return Arrays.copyOf(res, i);
 	}
 	
+	//How to optimize if the two arrays are sorted?
+	
+	
+	
+	
 	@Test
 	public void Test_101() {
 		int[] nums1 = {1,2,2,1};
