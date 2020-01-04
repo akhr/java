@@ -56,10 +56,10 @@ public class Matrix90Rotation {
 		for(int layer=0; layer<N-1; layer++){
 			int first = layer;
 			int last = N-1-layer;
-//			System.out.println("\n\nLayer "+layer+" : ");
+			System.out.println("\n\nLayer "+layer+" : ");
 			
 			for(int i=first; i<last; i++){
-//				System.out.println("\nRecursion "+i+" : ");
+				System.out.println("\nRecursion "+i+" : ");
 				
 				int offset = i-first;  //Required for the layers more than 0.
 				/*

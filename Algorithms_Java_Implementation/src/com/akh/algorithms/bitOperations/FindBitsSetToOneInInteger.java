@@ -22,6 +22,7 @@ public class FindBitsSetToOneInInteger {
 		for(int i = 0; i < 34; i++){
 			System.out.println("LS "+i+" :  = "+"Deci: "+(input << i)+" Bin: "+Integer.toBinaryString((input << i)));
 		}
+		sc.close();
 		
 		/**
 		 * The << left shift operator will bring in zeros just as you want to.
