@@ -3,55 +3,57 @@
  */
 package com.akh.algorithms.sorting.practice;
 
+import static org.junit.Assert.assertArrayEquals;
+import java.util.Arrays;
+import org.junit.Test;
+
 /**
  * @author Akhash Ramamurthy
  *
- * Apr 3, 2016 11:42:56 PM
- * QuickSorter.java
+ *         Apr 3, 2016 11:42:56 PM QuickSorter.java
  */
 public class QuickSorter extends AbstractSorter implements Sorter {
 	
-	/*public static void main(String[] args){
-		QuickSorter sorter = new QuickSorter();
-		int[] input = new int[]{7,2,1,6,8,5,3,4};
-		sorter.sortArray(input);
-	}*/
-	
 	@Override
 	public int[] sortArray(int[] array) {
-		array = new int[]{12, 14, 32, 4, 57, 2};
-		printArray("UN-sorted QuickSort Array: ", array);
 		quickSort(array, 0, array.length-1);
-		printArray("Sorted QuickSort Array: ", array);
 		return array;
 	}
-	
-	private int partitionPoint(int[] array, int start, int end){
-		int pivot = array[end];
-		int pIndex = start;
-		for(int i=start; i<end; i++){
-			if(array[i] < pivot){
-				int temp = array[i];
-				array[i] = array[pIndex];
-				array[pIndex] = temp;
-				pIndex++;
-			}	
+
+	private void quickSort(int[] a, int s, int e){
+		if (s >= e) {
+			return;
 		}
-		
-		if(pIndex != end){
-			int temp = array[end]; //pivot
-			array[end] = array[pIndex];
-			array[pIndex] = temp;
-		}
-		return pIndex;
-	}
-	
-	private void quickSort(int[] array, int start, int end){
-		if(start < end){
-			int partitionPoint = partitionPoint(array, start, end);
-			quickSort(array, start, partitionPoint-1);
-			quickSort(array, partitionPoint+1, end);
-		}
+		int p = getPIndex(a, s, e);
+		quickSort(a, s, p-1) ;
+		quickSort(a, p+1, e);
 	}
 
+	private int getPIndex(int[] a, int s, int e){
+		int p = s;
+		int pivot = a[e];
+		for (int i=s; i<e; i++) {
+			if (a[i] < pivot) {
+				swap(a, i, p);
+				p++;
+			}
+		}
+		swap(a, p, e);
+		return p;
+	} 
+
+	private void swap(int[] a, int i, int j){
+		int t = a[i];
+		a[i] = a[j];
+		a[j] = t;
+	}
+
+	@Test
+	public void Test_101() {
+		int[] in = new int[] {7,1,5,3,6,4};
+		assertArrayEquals(new int[]{1,3,4,5,6,7}, sortArray(in));
+		System.out.println("Sorted Arr : "+Arrays.toString(in));
+	}
 }
+
+

@@ -11,7 +11,7 @@ public class AlgorithmTester {
 	public static void main(String[] args) {
 //		int[] input = new int[]{2, 45, 1, 0, 6, 87, 23, 98, -32, 65, 12, 78, 3, 100, 255, 31};
 //		int[] input = new int[]{2, 45, 1, 0};
-		int[] input = new int[]{2,0};
+		int[] input = new int[]{1,2,3};
 
 
 		System.out.println("********* PRIMARY INPUT Array ===  " +input.toString());
