@@ -16,7 +16,7 @@ class LRUCache{
 		private Node prev = null;
 		private Node next = null;
 		private int data;
-
+		Map<Integer, Integer> m = new HashMap();
 		public Node(int data){
 			this.data = data;
 		}

@@ -3,12 +3,6 @@
  */
 package com.akh.java_concepts_test.inheritanceTest;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
-
-import org.omg.CORBA.OMGVMCID;
-
 /**
  * @author Akhash Ramamurthy
  *

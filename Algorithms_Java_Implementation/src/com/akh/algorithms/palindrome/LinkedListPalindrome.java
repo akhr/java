@@ -1,6 +1,5 @@
 package com.akh.algorithms.palindrome;
 
-import com.sun.scenario.effect.impl.state.LinearConvolveKernel;
 
 /**
  *  @fileName: LinkedListPalindrome.java
