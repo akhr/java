@@ -1,6 +1,6 @@
 package com.akh.java_concepts_test.regex;
 
-public class Pattern {
+public class MyPattern {
 
 
 	public static void main(String[] args) {
