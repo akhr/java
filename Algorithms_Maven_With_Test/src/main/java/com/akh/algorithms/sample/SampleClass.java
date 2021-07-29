@@ -1,5 +1,8 @@
 package com.akh.algorithms.sample;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  *  @fileName: SampleClass.java
  *  @author: Akhash Ramamurthy
@@ -7,5 +10,13 @@ package com.akh.algorithms.sample;
  */
 
 public class SampleClass {
+
+	public static void main(String[] args) {
+		//Creating the Logger object
+		Logger logger = LoggerFactory.getLogger("SampleLogger");
+
+		//Logging the information
+		logger.info("Hi This is my first SLF4J program");
+	}
 
 }

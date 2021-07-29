@@ -1,49 +1,39 @@
-package com.akh.java_concepts_test.regex;
+package com.akh.java_concepts_test.regex.gibberish;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegexTest {
+	//OLD or NEW
+	private static final String TEST_TYPE = "NEW"; 
 
 	public static void main(String[] args){
 		
-		List<Pattern> compiledPatternsList = new ArrayList<>();
-//		compiledPatternsList.add(Pattern.compile("([@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]{3})"));
-		compiledPatternsList.add(Pattern.compile("([!-\\/:-@\\[-`{-~]{3})"));
-		
-		Map<Pattern, Integer> compiledPatternsMap =  new LinkedHashMap<>();
-		// ([@#$%^&*()_+\\-\\[\\]{};':\"\\\\|,.<>\\/?]   {3})
-		//  [@#$%^&*()_+\\-\\[\\]{};':\"\\\\|<>\\/?]     =6
-		//  [@#$%^&*()_+\\-\\[\\]{};':\"\\\\|,.<>\\/?]   =10
-		// ([.,])=6
+		List<Pattern> compiledPatternsList = PatternFactory.getCompiledPatternsList(TEST_TYPE);
+		Map<Pattern, Integer> compiledPatternsMap = PatternFactory.getCompiledPatternsMap(TEST_TYPE);
 
-		compiledPatternsMap.put(Pattern.compile("[!-+:-@\\[-`{-~\\/\\-]"), 6);
-		compiledPatternsMap.put(Pattern.compile("([.,])"), 6);
-		compiledPatternsMap.put(Pattern.compile("[!-\\/:-@\\[-`{-~]"), 10);
-		
 		List<String> escapedAddr = new ArrayList<>();
 		int gibberishCount = 0;
-		
-		for(String address : getGibExamples_Quick()){
+
+		for(String address : getGibExamples_2()){
 			boolean isGib = matchesGibberishPatterns(address, compiledPatternsList, compiledPatternsMap);
 			System.out.println("Addr :: "+address+" - Is Gib - "+isGib+"\n");
-			
+
 			if (isGib){
 				gibberishCount++;
 			}else {
 				escapedAddr.add(address);
 			}
 		}
-		
-		System.out.println("\n\nSample Size-"+getGibExamples_Quick().size());
+
+		System.out.println("\n\nSample Size-"+getGibExamples_2().size());
 		System.out.println("Gibberish Count-"+gibberishCount);
 		System.out.println("Escaped Count-"+escapedAddr.size());
 		System.out.println("\n\nEscaped Addresses : ");
@@ -74,7 +64,7 @@ public class RegexTest {
 
 		return false;
 	}
-	
+
 	public static boolean exceedsGibberishCharThreshold(String address, Pattern pattern, int threshold){
 		Matcher m = pattern.matcher(address);
 		int count = 0;
@@ -96,8 +86,6 @@ public class RegexTest {
 		} 
 		return false;
 	}
-
-
 
 	public static List<String> getGibExamples_Quick(){
 		ArrayList<String> arr = new ArrayList<String>(
@@ -483,21 +471,378 @@ public class RegexTest {
 
 	}
 
-	//	if (matchExactPattern(address)){
-	//		gibberishCount++;
-	//		continue;
-	//	}
-	//
-	//	int count = 0;
-	//	Matcher m = r.matcher(address);       
-	//	while(m.find()){
-	//		count++;
-	//	}
-	//	if (count >= 5) {
-	//		gibberishCount++;
-	//		System.out.println("Count: "+address+" --> "+count+" Is Gibberish --> "+true);
-	//	} else {
-	//		escapedAddr.add(address);
-	//		System.out.println("*** Count: "+address+" --> "+count+" Is Gibberish --> "+false);
-	//	}
+	public static List<String> getGibExamples_2(){
+		ArrayList<String> arr = new ArrayList<String>(
+				Arrays.asList(
+					"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8..5,5.0 n.,w 7O,.th s.t rp\38824..--",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8,29,8---,--((NW,, 68th,St))",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"82,98--,---[NW'68,th'St]!!",
+"8...02,,0 nw 6,,.6t.,,,h st",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"1..14,,6,,9 N@@W 34--T..H S--T",
+"8241 N.W 6.6...TH ...S.T",
+"8550 n.o.r.t.h/ west$ stre3t",
+"85_--50 NW ~\"70_-_th} ST",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8,29,8---,--((NW,, 68th,St))",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"83 46 N...N,W 66..Th St",
+"80....20....nw 66th st",
+"8.34.6 -North--W,,,(66)TH",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"1.0.900 North N,W 21,th, ST--1617",
+"82,98--,---[NW'68,th'St]!!",
+"8346 nort,w 66...th ST....,",
+"83 46 N...N,W 66..Th St",
+"-(85,50)- n,w70,th s,t-34@8@25",
+"2--1-4...3 N.wW 79- AveE.,...",
+"5044 21.43...North/79th/av",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8.29.8---.--((NW.. 68th.St))",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"80....20....nw 66th st",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8.29.8---.--((NW.. 68th.St))",
+"5044 21.43...north/79th/av",
+"8.3.7.4 noth N,W 64, th, St---039240",
+"8346 nort,w 66...th ST.... 475.../K",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8236 NW 68th St.......",
+"85 50..n...W 70...th.st. rp52176",
+"85_--50 NW ~\"70_-_th} ST",
+"8236 NW 68th St.......",
+"8.3.74 noth N,W 64, th, st---038075",
+"8...02,,0 nw 6,,.6t.,,,h st",
+"2.2.40 north n,w 114,ave licol---661787",
+"-(85,50)- n,w70,th s,t-34@8@25",
+"8.3.7.2.. N---.W 6,8t././h St",
+"8...02,,0 nw 6,,.6t.,,,h st",
+"8.3.74 noth N,W 64, th, st---038075",
+"8,29,8---,--((NW,, 68th,St))",
+"2.2.40 north n,w 114,ave licol---661787",
+"8346 nort,w 66...th ST.... 475.../K",
+"83 46 N...N,W 66..Th St",
+"8236 NW 68th St.......",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8.0.2,0 North N,W 66,th, st---17171",
+"8241 N.W 6.6...TH ...S.T",
+"8,29,8---,--((NW,, 68th,St))",
+"8...02,,0 nw 6,,.6t.,,,h st",
+"8.34.6- N.NW 66...th, ~St:, RT...#003080",
+"8,29,8---,--((NW,, 68th,St))",
+"85_--50 NW ~\"70_-_th} ST",
+"5044 21.43...North/79th/av",
+"85,50--,---[NW'70,th'ST]!!",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"85_--50 NW ~\"70_-_th} ST",
+"2.1..4-3 N W 7.9th A...ve sp-3100",
+"8236 NW 68th St.......",
+"85 50..n...W 70...th.st. rp52176",
+"8.3.7.4 noth N,W 64, th, St---039240",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8.3.74 noth N,W 64, th, st---038075",
+"8...02,,0 nw 6,,.6t.,,,h st",
+"8.3.74 noth N,W 64, th, st---038928",
+"2 ... 1.4 3 N,wW 7/9 Ave.SP,003775/,",
+"82,98--,---[NW'68,th'St]!!",
+"8346 nort,w 66...th ST....",
+"85 50..n...W 70...th.st. rp52176",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8241 N.W 6.6...TH ...S.T",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"85 50..n...W 70...th.st. rp52176",
+"8,29,8---,--((NW,, 68th,St))",
+"85,,5-0,--,-[NW;70,'th',-ST]¡¡",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"82,98--,---[NW'68,th'St]!!",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8..346- N.NW 66 ,th, ~St:, RT#00...3080",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8346 nort,w 66...th ST....,",
+"8346 nort,w 66...th ST....",
+"8236 NW 68th St.......",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"2.1..4-3 N W 7.9th A...ve sp-3100",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"85_--50 NW ~\"70_-_th} ST",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8236 NW 68th St.......",
+"8236 NW 68th St.......",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"5044 21.43...North/79th/av",
+"8.3.74 noth N,W 64, th, st---038928",
+"8...02,,0 nw 6,,.6t.,,,h st",
+"1.0.900 North N,W 21,th, ST--1617",
+"8.3.74 noth N,W 64, th, st---038075",
+"85_--50 NW ~\"70_-_th} ST",
+"8..0..2..0 north--west- 66--th st",
+"8...02,,0 nw 6,,.6t.,,,h st",
+"8236 NW 68th St.......",
+"8.3.74 NN,WW 64, th, st---038075",
+"8...02,,0 nw 6,,.6t.,,,h st",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8,29,8---,--((NW,, 68th,St))",
+"85_--50 NW ~\"70_-_th} ST",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"85 50..n...W 70...th.st. rp52176",
+"82,98--,---[NW'68,th'St]!!",
+"83 46 N...N,W 66..Th St",
+"8346 nort,w 66...th ST....",
+"85 50..n...W 70...th.st. rp52176",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"2.2.40 north n,w 114,ave licol---661787",
+"85,50--,---[NW'70,th'ST]!!",
+"8,29,8---,--((NW,, 68th,St))",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8.3.74 noth N,W 64, th, st---038928",
+"82,98--,---[NW'68,th'St]!!",
+"8.3.7.4 noth N,W 64, th, St---039240",
+"8...346 NW 66th St",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8.29.8---.--((NW.. 68th.St))",
+"85 50..n...W 70...th.st. rp52176",
+"8,29,8---,--((NW,, 68th,St))",
+"82,98--,---[NW'68,th'St]!!",
+"85 50..n...W 70...th.st. rp52176",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"85_--50 NW ~\"70_-_th} ST",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8.3.74 NN,WW 64, th, st---038075",
+"8.3.7.2.. N---.W 6,8t././h St",
+"82$98 NW# 68$th S#t.",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8.3.7.4 noth N,W 64, th, St---039240",
+"82,98--,---[NW'68,th'St]!!",
+"82,98--,---[NW'68,th'St]!!",
+"8...346 NW 66th St",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"85 50..n...W 70...th.st. rp52176",
+"1.0.900 North N,W 21,th, ST--1617",
+"8.3.7.4 noth N,W 64, th, St---039240",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8.3.7.4 noth N,W 64, th, St---039240",
+"-(85,50)- n,w70,th s,t-34@8@25",
+"8236 NW 68th St.......",
+"8346 nort,w 66...th ST.... 475.../K",
+"85 50..n...W 70...th.st. rp52176",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"2.2.40 north n,w 114,ave licol---661787",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8,29,8---,--((NW,, 68th,St))",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8.0.2,0 North N,W 66,th, st---17171",
+"85_--50 NW ~\"70_-_th} ST",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"-(85,50)- n,w70,th s,t-34@8@25",
+"82,98--,---[NW'68,th'St]!!",
+"8346 nort,w 66...th ST....",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8.34.6 -North--W,,,(66)TH",
+"2;;.,;;1;/?...4,3 Nn/wW 79[th Ave]?",
+"8.0.2,0 North N,W 66,th, st---17171",
+"8241 N.W 6.6...TH ...S.T",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"1.0.900 North N,W 21,th, ST--1617",
+"8..5,5.0 n.,w 7O,.th s.t rp\38824..--",
+"82,98--,---[NW'68,th'St]!!",
+"8,29,8---,--((NW,, 68th,St))",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"8346 nort,w 66...th ST.... 475.../K",
+"85 50..n...W 70...th.st. rp52176",
+"8.0.2,0 North N,W 66,th, st---17171",
+"8...02,,0 nw 6,,.6t.,,,h st",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8..5,5.0 n.,w 7O,.th s.t rp\38824..--",
+"2.2.40 north n,w 114,ave licol---661787",
+"8...02,,0 nw 6,,.6t.,,,h st",
+"8,29,8---,--((NW,, 68th,St))",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8....37---2 N@@@W 68TH,,,S...T",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"2.2.40 north n,w 114,ave licol---661787",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"5044 21.43...North/79th/av",
+"85_--50 NW ~\"70_-_th} ST",
+"5044 21.43...North/79th/av",
+"8.29.8---.--((NW.. 68th.St))",
+"8241 N.W 6.6...TH ...S.T",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"85_--50 NW ~\"70_-_th} ST",
+"82,98--,---[NW'68,th'St]!!",
+"8.3.4,6 North N,W 66,TH,st---1562",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"ROOM-_85_--50 NW ~\"70_-_th} ST~MEDLEY!",
+"8346 nort,w 66...th ST....",
+"2258 Farragut Street......",
+"8.3.7.4 noth N,W 64, th, St---039240",
+"1.0.900 North N,W 21,th, ST--1617",
+"8.34.6 -North--W,,,(66)TH",
+"8346 nort,w 66...th ST....",
+"58,4,{NW61,th ST} ,,^^",
+"sUiTe'-'--15333PQ-medley",
+"58,4,{NW61,th ST} ,,^^",
+"ROoN'-'--PQ013616-medley",
+"10963",
+"58,4,{NW61,th ST} ,,^^",
+"door-unit-4044",
+"C07859",
+"apt 35591",
+"ROOM-_58~4~61!~MEDLEY!",
+"sUiTe'-'--13616PQ-medley",
+"# 1549",
+"###670",
+"streett,,ACS- 3160",
+"ROoN'-'--PQ013616-medley",
+"475.../K medley",
+"# 1549",
+"gdfgdffdf=3638",
+"Doral Doral",
+"sUiTe`-`--13616PQ-medley",
+"58,4,{NW61,th ST} ,,^^",
+"###670",
+"58,4,{NW61,th ST} ,,^^",
+"sUiTe`-`--13616PQ-medley",
+"Doral Doral",
+"29219",
+"miami florida zip, 33166",
+"ROOM-_58~4~61!~MEDLEY!",
+"29219",
+"10963",
+"apt00011632",
+"10963",
+"sUiTe'-'--15333PQ-medley",
+"# 1549",
+"29219",
+"58,4,{NW61,th ST} ,,^^",
+"58,4,{NW61,th ST} ,,^^",
+"17171",
+"C07859",
+"sUiTe'-'--15333PQ-medley",
+"10963",
+"sUiTe'-'--13616PQ-medley",
+"ROOM-_58~4~61!~MEDLEY!",
+"Doral Doral",
+"ROoN'-'--RP59013-MEDLEY",
+"58,4,{NW61,th ST} ,,^^",
+"ROOM-_58~4~61!~MEDLEY!",
+"29219",
+"miami florida zip, 33166",
+"58,4,{NW61,th ST} ,,^^",
+"58,4,{NW61,th ST} ,,^^",
+"10963",
+"ROoN'-'--PQ013616-medley",
+"475.../K",
+"miami florida zip, 33166",
+"C07859",
+"miami florida zip, 33166",
+"sUiTe'-'--13616PQ-medley",
+"BuIdInG –``59107RP-,MEDLEY",
+"58,4,{NW61,th ST} ,,^^",
+"58,4,{NW61,th ST} ,,^^",
+"ROoN'-'--PQ013616-medley",
+"58,4,{NW61,th ST} ,,^^",
+"475.../K medley",
+"475.../K",
+"29219",
+"ROOM-_58~4~61!~MEDLEY!",
+"29219",
+"29219",
+"58,4,{NW61,th ST} ,,^^",
+"58,4,{NW61,th ST} ,,^^",
+"Doral Doral",
+"10963",
+"ROOM-_58~4~61!~MEDLEY!",
+"apt000000004477",
+"10963",
+"29219",
+"10963",
+"58,4,{NW61,th ST} ,,^^",
+"sUiTe'-'--13616PQ-medley",
+"ROOM-_58~4~61!~MEDLEY!",
+"58,4,{NW61,th ST} ,,^^",
+"miami florida zip, 33166",
+"ROoN'-'--PQ013616-medley",
+"# 1549",
+"3802.../K, medley",
+"miami florida zip, 33166",
+"58,4,{NW61,th ST} ,,^^",
+"ROoN'-'--RP59013-MEDLEY",
+"sUiTe'-'--13616PQ-medley",
+"58,4,{NW61,th ST} ,,^^",
+"58,4,{NW61,th ST} ,,^^",
+"ROoN'-'--PQ013616-medley",
+"58,4,{NW61,th ST} ,,^^",
+"sUiTe`-`--13616PQ-medley",
+"miami florida zip, 33166",
+"sUiTe'-'--13616PQ-medley",
+"ROoN'-'--PQ013616-medley",
+"miami florida zip, 33166",
+"58,4,{NW61,th ST} ,,^^",
+"58,4,{NW61,th ST} ,,^^",
+"ROOM-_58~4~61!~MEDLEY!",
+"apt00011632",
+"PQ #010863",
+"58,4,{NW61,th ST} ,,^^",
+"ROoN'-'--PQ013616-medley",
+"ROoN'-'--PQ013616-medley",
+"miami florida zip, 33166",
+"29219",
+"miami florida zip, 33166",
+"sUiTe'-'--13616PQ-medley",
+"58,4,{NW61,th ST} ,,^^",
+"17171",
+"ROOM-_58~4~61!~MEDLEY!",
+"58,4,{NW61,th ST} ,,^^",
+"ROoN'-'--PQ013616-medley",
+"475.../K",
+"streett,,ACS- 3160",
+"3126 suit??",
+"17171",
+"C07859",
+"58,4,{NW61,th ST} ,,^^",
+"ROoN'-'--PQ013616-medley",
+"sUiTe'-'--13616PQ-medley",
+"miami florida zip, 33166",
+"10963",
+"58,4,{NW61,th ST} ,,^^",
+"10963",
+"sUiTe'-'--13616PQ-medley",
+"58,4,{NW61,th ST} ,,^^",
+"bills-luz-14109",
+"58,4,{NW61,th ST} ,,^^",
+"Doral Doral",
+"ROOM-_58~4~61!~MEDLEY!",
+"Doral Doral",
+"sUiTe`-`--13616PQ-medley",
+"C07859",
+"ROOM-_58~4~61!~MEDLEY!",
+"ROoN'-'--PQ013616-medley",
+"58,4,{NW61,th ST} ,,^^",
+"58,4,{NW61,th ST} ,,^^",
+"475.../K",
+"APT.3",
+"streett,,ACS- 3160",
+"475.../K"
+				));
+
+				return arr;
+
+			}
 }
