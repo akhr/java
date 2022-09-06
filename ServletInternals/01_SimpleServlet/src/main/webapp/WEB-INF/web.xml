@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>myapp</display-name>
+	<servlet>
+		<servlet-name>xmlServlet</servlet-name>
+		<servlet-class>com.akh.XML_Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>xmlServlet</servlet-name>
+		<url-pattern>/xmlservlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>orderServlet</servlet-name>
+		<servlet-class>com.akh.OrderServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>orderServlet</servlet-name>
+		<url-pattern>/orders</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>menuServlet</servlet-name>
+		<servlet-class>com.akh.MenuServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>menuServlet</servlet-name>
+		<url-pattern>/menus</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
