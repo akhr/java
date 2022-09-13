@@ -1,4 +1,4 @@
-package com.akh.java8;
+package com.akh.java8.stream;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,14 +22,13 @@ public class StreamFilterObjects {
 		list.add(new Order(8, "Thursday"));
 		list.add(new Order(10, ""));
 
-		System.out.println(list
-				.stream()
-				.anyMatch(order -> order.getOrderByName().contains("a")));
+//		System.out.println(list
+//				.stream()
+//				.anyMatch(order -> order.getOrderByName().contains("a")));
 
-		list
-			.stream()
+		list.stream()
 			.filter(order -> order.getOrderByName().contains("a"))
-			.forEach(order -> System.out.println(order.toString()));
+			.forEach(System.out::println);
 
 	}
 
