@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.akh.java_concepts_test.serialization;
 
@@ -14,29 +14,24 @@ import java.util.Calendar;
  * Feb , 
  */
 public class InflateTime {
-	public static void main(String [] args)
-	{
-		String filename = "time.txt"; 
-		if(args.length > 0)
-		{
+
+	public static void main(String [] args) {
+		String filename = "time.txt";
+		if(args.length > 0) {
 			filename = args[0];
 		}
 		PersistentTime time = null;
 		FileInputStream fis = null;
 		ObjectInputStream in = null;
-		try
-		{
+		try {
 			fis = new FileInputStream(filename);
 			in = new ObjectInputStream(fis);
 			time = (PersistentTime)in.readObject();
 			in.close();
-		}
-		catch(IOException ex)
-		{
+		} catch(IOException ex) {
 			ex.printStackTrace();
 		}
-		catch(ClassNotFoundException ex)
-		{
+		catch(ClassNotFoundException ex) {
 			ex.printStackTrace();
 		}
 		// print out restored time

@@ -1,1 +1,3 @@
+com/akh/restServer/resource/GameResourceTest.class
 com/akh/restServer/SprintBootRestApplicationTests.class
+com/akh/restServer/service/GameServiceTest.class

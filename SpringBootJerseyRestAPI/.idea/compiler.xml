@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring_boot_rest" />
+        <module name="sprint_boot_jersey_rest" />
         <module name="SprintBootJerseyRest" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="SprintBootJerseyRest" options="-parameters" />
       <module name="spring_boot_rest" options="-parameters" />
+      <module name="sprint_boot_jersey_rest" options="-parameters" />
     </option>
   </component>
 </project>

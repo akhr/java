@@ -44,8 +44,8 @@ public class GameService {
                 .filter(new Predicate<Game>() {
                     @Override
                     public boolean test(Game game) {
-                        return (game.getTeam1().equalsIgnoreCase(team1) && game.getTeam2().equalsIgnoreCase(team2)) ||
-                                (game.getTeam1().equalsIgnoreCase(team2) && game.getTeam2().equalsIgnoreCase(team1));
+                        return (game.getTeam1().equalsIgnoreCase(team1) && game.getTeam2().equalsIgnoreCase(team2))
+                        /*|| (game.getTeam1().equalsIgnoreCase(team2) && game.getTeam2().equalsIgnoreCase(team1)*/;
                     }
                 }).collect(Collectors.toList());
         return filterGames;

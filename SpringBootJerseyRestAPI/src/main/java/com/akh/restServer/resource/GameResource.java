@@ -23,14 +23,16 @@ public class GameResource {
 
     @GET
     @Path("/games")
+    //localhost:8080/api/v1/games?team1=India&team2=Australia
     @Produces(MediaType.APPLICATION_JSON)
     public Response getGames(@QueryParam("team1") String team1, @QueryParam("team2") String team2){
 
         List<Game> games;
 
-        if (!StringUtils.hasLength(team1) && !StringUtils.hasLength(team2))
+        if (team1 != null && !team1.isEmpty() && team2 != null && !team2.isEmpty())
             games = gameService.getGamesBetweenTeams(team1, team2);
-        else if (!StringUtils.hasLength(team1) || !StringUtils.hasLength(team2)) {
+        else if ((team1 != null && !team1.isEmpty())
+                || (team2 != null && !team2.isEmpty())) {
             String team = !StringUtils.hasLength(team1) ? team2 : team1;
             games = gameService.getGamesOfATeam(team);
         } else
@@ -58,8 +60,8 @@ public class GameResource {
         return Response.status(Response.Status.OK).entity(games).build();
     }
 
-    @Path("/games")
     @POST
+    @Path("/games")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addGame(CreateGameRequest createGameRequest, @Context UriInfo uriInfo){

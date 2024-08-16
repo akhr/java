@@ -45,7 +45,7 @@ public class GameRepository {
         return games;
     }
 
-    private int generateId(){
+    public int generateId(){
         return ThreadLocalRandom.current().nextInt(1000, 2000);
     }
 }
