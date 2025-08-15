@@ -1,9 +1,0 @@
-/Users/akramamurthy/akspace/workspaces/git_personal/java/SpringBootJerseyRestAPI/src/main/java/com/akh/restServer/request/CreateGameRequest.java
-/Users/akramamurthy/akspace/workspaces/git_personal/java/SpringBootJerseyRestAPI/src/main/java/com/akh/restServer/request/GamesRequest.java
-/Users/akramamurthy/akspace/workspaces/git_personal/java/SpringBootJerseyRestAPI/src/main/java/com/akh/restServer/repository/GameRepository.java
-/Users/akramamurthy/akspace/workspaces/git_personal/java/SpringBootJerseyRestAPI/src/main/java/com/akh/restServer/model/Game.java
-/Users/akramamurthy/akspace/workspaces/git_personal/java/SpringBootJerseyRestAPI/src/main/java/com/akh/restServer/JerseyConfig.java
-/Users/akramamurthy/akspace/workspaces/git_personal/java/SpringBootJerseyRestAPI/src/main/java/com/akh/restServer/resource/GameResource.java
-/Users/akramamurthy/akspace/workspaces/git_personal/java/SpringBootJerseyRestAPI/src/main/java/com/akh/restServer/entity/GameEntity.java
-/Users/akramamurthy/akspace/workspaces/git_personal/java/SpringBootJerseyRestAPI/src/main/java/com/akh/restServer/service/GameService.java
-/Users/akramamurthy/akspace/workspaces/git_personal/java/SpringBootJerseyRestAPI/src/main/java/com/akh/restServer/SprintBootRestApplication.java

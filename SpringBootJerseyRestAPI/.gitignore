@@ -1,4 +1,16 @@
-**/.idea/**
-/.idea/**
-/target
+# IntelliJ IDEA project settings
+.idea/
+
+# Eclipse project settings
 .project
+.settings/
+
+# Maven / Gradle build output
+target/
+
+# If target folders appear in submodules too
+**/target/
+
+# OS-specific
+.DS_Store
+Thumbs.db
