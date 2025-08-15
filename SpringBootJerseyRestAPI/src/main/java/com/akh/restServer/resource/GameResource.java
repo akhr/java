@@ -4,13 +4,13 @@ import com.akh.restServer.model.Game;
 import com.akh.restServer.request.CreateGameRequest;
 import com.akh.restServer.request.GamesRequest;
 import com.akh.restServer.service.GameService;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.*;
 import java.net.URI;
 import java.util.List;
 

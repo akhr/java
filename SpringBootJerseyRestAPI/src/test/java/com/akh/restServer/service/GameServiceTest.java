@@ -12,7 +12,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
