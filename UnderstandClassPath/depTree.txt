@@ -1,0 +1,151 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.example:weather-api >-----------------------
+[INFO] Building weather-api 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.8.1:tree (default-cli) @ weather-api ---
+[INFO] com.example:weather-api:jar:1.0-SNAPSHOT
+[INFO] +- org.springframework.boot:spring-boot-starter-jersey:jar:3.5.3:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:3.5.3:compile (version managed from 3.5.3)
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter:jar:3.5.3:compile (version managed from 3.5.3)
+[INFO] |  |  |  +- org.springframework.boot:spring-boot:jar:3.5.3:compile (version managed from 3.5.3)
+[INFO] |  |  |  |  +- (org.springframework:spring-core:jar:6.2.8:compile - version managed from 6.2.8; omitted for duplicate)
+[INFO] |  |  |  |  \- org.springframework:spring-context:jar:6.2.8:compile (version managed from 6.2.8)
+[INFO] |  |  |  |     +- org.springframework:spring-aop:jar:6.2.8:compile (version managed from 6.2.8)
+[INFO] |  |  |  |     |  +- (org.springframework:spring-beans:jar:6.2.8:compile - version managed from 6.2.8; omitted for duplicate)
+[INFO] |  |  |  |     |  \- (org.springframework:spring-core:jar:6.2.8:compile - version managed from 6.2.8; omitted for duplicate)
+[INFO] |  |  |  |     +- (org.springframework:spring-beans:jar:6.2.8:compile - version managed from 6.2.8; omitted for duplicate)
+[INFO] |  |  |  |     +- (org.springframework:spring-core:jar:6.2.8:compile - version managed from 6.2.8; omitted for duplicate)
+[INFO] |  |  |  |     +- org.springframework:spring-expression:jar:6.2.8:compile (version managed from 6.2.8)
+[INFO] |  |  |  |     |  \- (org.springframework:spring-core:jar:6.2.8:compile - version managed from 6.2.8; omitted for duplicate)
+[INFO] |  |  |  |     \- (io.micrometer:micrometer-observation:jar:1.15.1:compile - version managed from 1.14.8; omitted for duplicate)
+[INFO] |  |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:3.5.3:compile (version managed from 3.5.3)
+[INFO] |  |  |  |  \- (org.springframework.boot:spring-boot:jar:3.5.3:compile - version managed from 3.5.3; omitted for duplicate)
+[INFO] |  |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:3.5.3:compile (version managed from 3.5.3)
+[INFO] |  |  |  |  +- ch.qos.logback:logback-classic:jar:1.5.18:compile (version managed from 1.5.18)
+[INFO] |  |  |  |  |  +- ch.qos.logback:logback-core:jar:1.5.18:compile (version managed from 1.5.18)
+[INFO] |  |  |  |  |  \- org.slf4j:slf4j-api:jar:2.0.17:compile (version managed from 2.0.17)
+[INFO] |  |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.24.3:compile (version managed from 2.24.3)
+[INFO] |  |  |  |  |  +- org.apache.logging.log4j:log4j-api:jar:2.24.3:compile (version managed from 2.24.3)
+[INFO] |  |  |  |  |  \- (org.slf4j:slf4j-api:jar:2.0.17:compile - version managed from 2.0.16; omitted for duplicate)
+[INFO] |  |  |  |  \- org.slf4j:jul-to-slf4j:jar:2.0.17:compile (version managed from 2.0.17)
+[INFO] |  |  |  |     \- (org.slf4j:slf4j-api:jar:2.0.17:compile - version managed from 2.0.17; omitted for duplicate)
+[INFO] |  |  |  +- (jakarta.annotation:jakarta.annotation-api:jar:2.1.1:compile - version managed from 2.1.1; omitted for duplicate)
+[INFO] |  |  |  +- (org.springframework:spring-core:jar:6.2.8:compile - version managed from 6.2.8; omitted for duplicate)
+[INFO] |  |  |  \- org.yaml:snakeyaml:jar:2.4:compile (version managed from 2.4)
+[INFO] |  |  +- (org.springframework:spring-web:jar:6.2.8:compile - version managed from 6.2.8; omitted for duplicate)
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.19.1:compile (version managed from 2.19.1)
+[INFO] |  |  |  +- (com.fasterxml.jackson.core:jackson-annotations:jar:2.19.1:compile - version managed from 2.19.1; omitted for duplicate)
+[INFO] |  |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.19.1:compile (version managed from 2.19.1)
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.19.1:compile (version managed from 2.19.1)
+[INFO] |  |  |  +- (com.fasterxml.jackson.core:jackson-core:jar:2.19.1:compile - version managed from 2.19.1; omitted for duplicate)
+[INFO] |  |  |  \- (com.fasterxml.jackson.core:jackson-databind:jar:2.19.1:compile - version managed from 2.19.1; omitted for duplicate)
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.19.1:compile (version managed from 2.19.1)
+[INFO] |  |  |  +- (com.fasterxml.jackson.core:jackson-annotations:jar:2.19.1:compile - version managed from 2.19.1; omitted for duplicate)
+[INFO] |  |  |  +- (com.fasterxml.jackson.core:jackson-core:jar:2.19.1:compile - version managed from 2.19.1; omitted for duplicate)
+[INFO] |  |  |  \- (com.fasterxml.jackson.core:jackson-databind:jar:2.19.1:compile - version managed from 2.19.1; omitted for duplicate)
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.19.1:compile (version managed from 2.19.1)
+[INFO] |  |     +- (com.fasterxml.jackson.core:jackson-core:jar:2.19.1:compile - version managed from 2.19.1; omitted for duplicate)
+[INFO] |  |     \- (com.fasterxml.jackson.core:jackson-databind:jar:2.19.1:compile - version managed from 2.19.1; omitted for duplicate)
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:3.5.3:compile (version managed from 3.5.3)
+[INFO] |  |  +- jakarta.annotation:jakarta.annotation-api:jar:2.1.1:compile (version managed from 2.1.1)
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:10.1.42:compile (version managed from 10.1.42)
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:10.1.42:compile (version managed from 10.1.42)
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:10.1.42:compile (version managed from 10.1.42)
+[INFO] |  |     \- (org.apache.tomcat.embed:tomcat-embed-core:jar:10.1.42:compile - version managed from 10.1.42; omitted for duplicate)
+[INFO] |  +- org.springframework.boot:spring-boot-starter-validation:jar:3.5.3:compile (version managed from 3.5.3)
+[INFO] |  |  +- (org.springframework.boot:spring-boot-starter:jar:3.5.3:compile - version managed from 3.5.3; omitted for duplicate)
+[INFO] |  |  +- (org.apache.tomcat.embed:tomcat-embed-el:jar:10.1.42:compile - version managed from 10.1.42; omitted for duplicate)
+[INFO] |  |  \- org.hibernate.validator:hibernate-validator:jar:8.0.2.Final:compile (version managed from 8.0.2.Final)
+[INFO] |  |     +- (jakarta.validation:jakarta.validation-api:jar:3.0.2:compile - version managed from 3.0.2; omitted for duplicate)
+[INFO] |  |     +- (org.jboss.logging:jboss-logging:jar:3.6.1.Final:compile - version managed from 3.4.3.Final; omitted for duplicate)
+[INFO] |  |     \- com.fasterxml:classmate:jar:1.7.0:compile (version managed from 1.5.1)
+[INFO] |  +- org.springframework:spring-web:jar:6.2.8:compile (version managed from 6.2.8)
+[INFO] |  |  +- org.springframework:spring-beans:jar:6.2.8:compile (version managed from 6.2.8)
+[INFO] |  |  |  \- (org.springframework:spring-core:jar:6.2.8:compile - version managed from 6.2.8; omitted for duplicate)
+[INFO] |  |  +- org.springframework:spring-core:jar:6.2.8:compile (version managed from 6.2.8)
+[INFO] |  |  |  \- org.springframework:spring-jcl:jar:6.2.8:compile (version managed from 6.2.8)
+[INFO] |  |  \- io.micrometer:micrometer-observation:jar:1.15.1:compile (version managed from 1.14.8)
+[INFO] |  |     \- io.micrometer:micrometer-commons:jar:1.15.1:compile (version managed from 1.15.1)
+[INFO] |  +- org.glassfish.jersey.containers:jersey-container-servlet-core:jar:3.1.10:compile (version managed from 3.1.10)
+[INFO] |  |  +- jakarta.inject:jakarta.inject-api:jar:2.0.1:compile (version managed from 2.0.1)
+[INFO] |  |  +- org.glassfish.jersey.core:jersey-common:jar:3.1.10:compile (version managed from 3.1.10)
+[INFO] |  |  |  +- (jakarta.ws.rs:jakarta.ws.rs-api:jar:3.1.0:compile - version managed from 3.1.0; omitted for duplicate)
+[INFO] |  |  |  +- (jakarta.annotation:jakarta.annotation-api:jar:2.1.1:compile - version managed from 2.1.1; omitted for duplicate)
+[INFO] |  |  |  +- (jakarta.inject:jakarta.inject-api:jar:2.0.1:compile - version managed from 2.0.1; omitted for duplicate)
+[INFO] |  |  |  \- org.glassfish.hk2:osgi-resource-locator:jar:1.0.3:compile
+[INFO] |  |  +- (org.glassfish.jersey.core:jersey-server:jar:3.1.10:compile - version managed from 3.1.10; omitted for duplicate)
+[INFO] |  |  \- jakarta.ws.rs:jakarta.ws.rs-api:jar:3.1.0:compile (version managed from 3.1.0)
+[INFO] |  +- org.glassfish.jersey.containers:jersey-container-servlet:jar:3.1.10:compile (version managed from 3.1.10)
+[INFO] |  |  +- (org.glassfish.jersey.containers:jersey-container-servlet-core:jar:3.1.10:compile - version managed from 3.1.10; omitted for duplicate)
+[INFO] |  |  +- (org.glassfish.jersey.core:jersey-common:jar:3.1.10:compile - version managed from 3.1.10; omitted for duplicate)
+[INFO] |  |  +- (org.glassfish.jersey.core:jersey-server:jar:3.1.10:compile - version managed from 3.1.10; omitted for duplicate)
+[INFO] |  |  \- (jakarta.ws.rs:jakarta.ws.rs-api:jar:3.1.0:compile - version managed from 3.1.0; omitted for duplicate)
+[INFO] |  +- org.glassfish.jersey.core:jersey-server:jar:3.1.10:compile (version managed from 3.1.10)
+[INFO] |  |  +- (org.glassfish.jersey.core:jersey-common:jar:3.1.10:compile - version managed from 3.1.10; omitted for duplicate)
+[INFO] |  |  +- org.glassfish.jersey.core:jersey-client:jar:3.1.10:compile (version managed from 3.1.10)
+[INFO] |  |  |  +- (jakarta.ws.rs:jakarta.ws.rs-api:jar:3.1.0:compile - version managed from 3.1.0; omitted for duplicate)
+[INFO] |  |  |  +- (org.glassfish.jersey.core:jersey-common:jar:3.1.10:compile - version managed from 3.1.10; omitted for duplicate)
+[INFO] |  |  |  \- (jakarta.inject:jakarta.inject-api:jar:2.0.1:compile - version managed from 2.0.1; omitted for duplicate)
+[INFO] |  |  +- (jakarta.ws.rs:jakarta.ws.rs-api:jar:3.1.0:compile - version managed from 3.1.0; omitted for duplicate)
+[INFO] |  |  +- (jakarta.annotation:jakarta.annotation-api:jar:2.1.1:compile - version managed from 2.1.1; omitted for duplicate)
+[INFO] |  |  +- (jakarta.inject:jakarta.inject-api:jar:2.0.1:compile - version managed from 2.0.1; omitted for duplicate)
+[INFO] |  |  \- jakarta.validation:jakarta.validation-api:jar:3.0.2:compile (version managed from 3.0.2)
+[INFO] |  +- org.glassfish.jersey.ext:jersey-bean-validation:jar:3.1.10:compile (version managed from 3.1.10)
+[INFO] |  |  +- (jakarta.inject:jakarta.inject-api:jar:2.0.1:compile - version managed from 2.0.1; omitted for duplicate)
+[INFO] |  |  +- (org.glassfish.jersey.core:jersey-common:jar:3.1.10:compile - version managed from 3.1.10; omitted for duplicate)
+[INFO] |  |  +- (org.glassfish.jersey.core:jersey-server:jar:3.1.10:compile - version managed from 3.1.10; omitted for duplicate)
+[INFO] |  |  +- (jakarta.validation:jakarta.validation-api:jar:3.0.2:compile - version managed from 3.0.2; omitted for duplicate)
+[INFO] |  |  +- (org.hibernate.validator:hibernate-validator:jar:8.0.2.Final:compile - version managed from 8.0.1.Final; omitted for duplicate)
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.6.1.Final:compile (version managed from 3.6.0.Final)
+[INFO] |  |  +- org.glassfish.expressly:expressly:jar:5.0.0:compile
+[INFO] |  |  \- (jakarta.ws.rs:jakarta.ws.rs-api:jar:3.1.0:compile - version managed from 3.1.0; omitted for duplicate)
+[INFO] |  +- org.glassfish.jersey.ext:jersey-spring6:jar:3.1.10:compile (version managed from 3.1.10)
+[INFO] |  |  +- (org.glassfish.jersey.core:jersey-server:jar:3.1.10:compile - version managed from 3.1.10; omitted for duplicate)
+[INFO] |  |  +- org.glassfish.jersey.inject:jersey-hk2:jar:3.1.10:compile (version managed from 3.1.10)
+[INFO] |  |  |  +- (org.glassfish.jersey.core:jersey-common:jar:3.1.10:compile - version managed from 3.1.10; omitted for duplicate)
+[INFO] |  |  |  +- org.glassfish.hk2:hk2-locator:jar:3.0.6:compile
+[INFO] |  |  |  |  +- org.glassfish.hk2.external:aopalliance-repackaged:jar:3.0.6:compile
+[INFO] |  |  |  |  +- (org.glassfish.hk2:hk2-api:jar:3.0.6:compile - omitted for duplicate)
+[INFO] |  |  |  |  \- (org.glassfish.hk2:hk2-utils:jar:3.0.6:compile - omitted for duplicate)
+[INFO] |  |  |  \- org.javassist:javassist:jar:3.30.2-GA:compile
+[INFO] |  |  +- (org.glassfish.jersey.containers:jersey-container-servlet-core:jar:3.1.10:compile - version managed from 3.1.10; omitted for duplicate)
+[INFO] |  |  +- org.glassfish.hk2:hk2:jar:3.0.6:compile
+[INFO] |  |  |  +- org.glassfish.hk2:hk2-utils:jar:3.0.6:compile
+[INFO] |  |  |  |  \- (jakarta.inject:jakarta.inject-api:jar:2.0.1:compile - version managed from 2.0.1; omitted for duplicate)
+[INFO] |  |  |  +- org.glassfish.hk2:hk2-api:jar:3.0.6:compile
+[INFO] |  |  |  |  +- (jakarta.inject:jakarta.inject-api:jar:2.0.1:compile - version managed from 2.0.1; omitted for duplicate)
+[INFO] |  |  |  |  +- (org.glassfish.hk2:hk2-utils:jar:3.0.6:compile - omitted for duplicate)
+[INFO] |  |  |  |  \- (org.glassfish.hk2.external:aopalliance-repackaged:jar:3.0.6:compile - omitted for duplicate)
+[INFO] |  |  |  +- org.glassfish.hk2:hk2-core:jar:3.0.6:compile
+[INFO] |  |  |  |  +- (org.glassfish.hk2:hk2-locator:jar:3.0.6:compile - omitted for duplicate)
+[INFO] |  |  |  |  \- (org.glassfish.hk2:hk2-utils:jar:3.0.6:compile - omitted for duplicate)
+[INFO] |  |  |  +- (org.glassfish.hk2:hk2-locator:jar:3.0.6:compile - omitted for duplicate)
+[INFO] |  |  |  +- org.glassfish.hk2:hk2-runlevel:jar:3.0.6:compile
+[INFO] |  |  |  |  +- (org.glassfish.hk2:hk2-api:jar:3.0.6:compile - omitted for duplicate)
+[INFO] |  |  |  |  \- (org.glassfish.hk2:hk2-locator:jar:3.0.6:compile - omitted for duplicate)
+[INFO] |  |  |  \- org.glassfish.hk2:class-model:jar:3.0.6:compile
+[INFO] |  |  |     \- org.ow2.asm:asm-commons:jar:9.6:compile
+[INFO] |  |  +- org.glassfish.hk2:spring-bridge:jar:3.0.6:compile
+[INFO] |  |  \- (jakarta.ws.rs:jakarta.ws.rs-api:jar:3.1.0:compile - version managed from 3.1.0; omitted for duplicate)
+[INFO] |  \- org.glassfish.jersey.media:jersey-media-json-jackson:jar:3.1.10:compile (version managed from 3.1.10)
+[INFO] |     +- (org.glassfish.jersey.core:jersey-common:jar:3.1.10:compile - version managed from 3.1.10; omitted for duplicate)
+[INFO] |     +- org.glassfish.jersey.ext:jersey-entity-filtering:jar:3.1.10:compile (version managed from 3.1.10)
+[INFO] |     |  \- (jakarta.ws.rs:jakarta.ws.rs-api:jar:3.1.0:compile - version managed from 3.1.0; omitted for duplicate)
+[INFO] |     +- com.fasterxml.jackson.core:jackson-annotations:jar:2.19.1:compile (version managed from 2.18.0)
+[INFO] |     +- (com.fasterxml.jackson.core:jackson-databind:jar:2.19.1:compile - version managed from 2.18.0; omitted for duplicate)
+[INFO] |     +- com.fasterxml.jackson.module:jackson-module-jakarta-xmlbind-annotations:jar:2.19.1:compile (version managed from 2.18.0)
+[INFO] |     |  +- (com.fasterxml.jackson.core:jackson-annotations:jar:2.19.1:compile - version managed from 2.19.1; omitted for duplicate)
+[INFO] |     |  +- (com.fasterxml.jackson.core:jackson-core:jar:2.19.1:compile - version managed from 2.19.1; omitted for duplicate)
+[INFO] |     |  \- (com.fasterxml.jackson.core:jackson-databind:jar:2.19.1:compile - version managed from 2.19.1; omitted for duplicate)
+[INFO] |     \- jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.2:compile (version managed from 4.0.2)
+[INFO] |        \- jakarta.activation:jakarta.activation-api:jar:2.1.3:compile (version managed from 2.1.3)
+[INFO] \- org.projectlombok:lombok:jar:1.18.38:provided
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.717 s
+[INFO] Finished at: 2026-03-15T22:56:21-07:00
+[INFO] ------------------------------------------------------------------------
